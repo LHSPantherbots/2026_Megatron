@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
+import frc.robot.commands.LauncherHoodAuto;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CenterDrive;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -201,6 +202,7 @@ public class RobotContainer {
         .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1])))
       );
 
+      m_driverController.x().whileTrue(new LauncherHoodAuto(launcher, hood, drivetrain));
 
 
 

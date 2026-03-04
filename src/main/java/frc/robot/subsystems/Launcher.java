@@ -10,9 +10,13 @@ import com.ctre.phoenix6.signals.InvertedValue;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 import frc.robot.util.Constants.CanIdConstants;
+import frc.robot.Positions;
 
 public class Launcher extends SubsystemBase {
+
+  Positions position; 
 
   private final TalonFX leftLauncher;
   private final TalonFX rightLauncher;
@@ -136,4 +140,19 @@ public class Launcher extends SubsystemBase {
     setLauncherSetpoint(extraLongSetpoint);
   }
   
+    public void setLauncherMode(Positions position) {
+      this.position = position;
+      switch(position) {
+        case SHORT:
+          setLauncherShort();
+          break;
+        case MID:
+          setLauncherMid();
+          break;
+        case LONG:
+          setLauncherLong();
+          break;
+      }
+    }
+
 }
