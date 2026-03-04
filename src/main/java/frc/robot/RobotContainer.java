@@ -50,6 +50,12 @@ public class RobotContainer {
     private final SwerveRequest.RobotCentric forwardStraight = new SwerveRequest.RobotCentric()
             .withDriveRequestType(DriveRequestType.OpenLoopVoltage);
 
+    private final SwerveRequest.RobotCentricFacingAngle robotDrive = new SwerveRequest.RobotCentricFacingAngle()
+            .withDeadband(MaxSpeed * 0.05)
+            .withDriveRequestType(DriveRequestType.OpenLoopVoltage)
+            .withHeadingPID(16.0,0,0)
+            .withTargetRateFeedforward(0.0).withMaxAbsRotationalRate(MaxAngularRate*.5);
+
     private final Telemetry logger = new Telemetry(MaxSpeed);
 
     private final CommandXboxController m_driverController = new CommandXboxController(0);
@@ -185,6 +191,16 @@ public class RobotContainer {
     // Right bumper: climb up at a fixed speed. Left bumper: climb down (reverse).
     m_driverController.rightBumper().whileTrue(new RunCommand(()->climb.manualDrive(0.5), climb));
     m_driverController.leftBumper().whileTrue(new RunCommand(()->climb.manualDrive(-0.5), climb));
+
+
+
+      m_driverController.x().whileTrue(
+        drivetrain.applyRequest(() ->
+            robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) // Need to update for desired area
+        .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) 
+        .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1])))
+      );
+
 
 
 
