@@ -180,19 +180,8 @@ public class Hood extends SubsystemBase {
     setHoodSetpoint(extraLongSetpoint);
   }
 
-  public void setLauncherMode(Positions position) {
-      this.position = position;
-      switch(position) {
-        case SHORT:
-          setHoodShort();
-          break;
-        case MID:
-          setHoodMid();
-          break;
-        case LONG:
-          setHoodLong();
-          break;
-      }
+  public void setLauncherMode(double hoodAngle) {
+      setHoodSetpoint(hoodAngle);
     }
 
 }
