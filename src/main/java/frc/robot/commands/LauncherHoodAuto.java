@@ -18,7 +18,7 @@ public class LauncherHoodAuto extends Command {
         this.launcher = launcher;
         this.hood = hood;
         this.drivetrain = drivetrain;
-        addRequirements(launcher, hood, drivetrain);
+        addRequirements(launcher, hood);
     }
     
     @Override
@@ -26,18 +26,11 @@ public class LauncherHoodAuto extends Command {
         double[] values = drivetrain.getLengthAndAngleFromHub();
         double distance = values[1];
 
-        double hoodangle = 0.02*(distance) + 0.77;
-        hood.setLauncherMode(hoodangle);
+        double hoodAngle = 0.02*(distance) + 0.77;
+        hood.setHoodMode(hoodAngle);
 
-         if(values[0] < 1) {
-        launcher.setLauncherMode(Positions.SHORT);
-       } else if (values[0] < 2) {
-        launcher.setLauncherMode(Positions.MID);
-       } else if (values[0] < 3) {
-        launcher.setLauncherMode(Positions.LONG);
-       } else {
-        launcher.setLauncherMode(Positions.EXTRALONG);
-       }
+        double launcherSpeed = 5*(distance) + 45;
+        launcher.setLauncherMode(launcherSpeed);
     }
 
     @Override

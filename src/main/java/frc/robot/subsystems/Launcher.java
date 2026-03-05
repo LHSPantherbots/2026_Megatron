@@ -140,19 +140,8 @@ public class Launcher extends SubsystemBase {
     setLauncherSetpoint(extraLongSetpoint);
   }
   
-    public void setLauncherMode(Positions position) {
-      this.position = position;
-      switch(position) {
-        case SHORT:
-          setLauncherShort();
-          break;
-        case MID:
-          setLauncherMid();
-          break;
-        case LONG:
-          setLauncherLong();
-          break;
-      }
+    public void setLauncherMode(double launcherSpeed) {
+      setLauncherSetpoint(launcherSpeed);
     }
 
 }

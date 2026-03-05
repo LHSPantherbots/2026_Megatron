@@ -180,7 +180,7 @@ public class Hood extends SubsystemBase {
     setHoodSetpoint(extraLongSetpoint);
   }
 
-  public void setLauncherMode(double hoodAngle) {
+  public void setHoodMode(double hoodAngle) {
       setHoodSetpoint(hoodAngle);
     }
 
