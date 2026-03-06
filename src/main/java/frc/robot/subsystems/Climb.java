@@ -39,14 +39,14 @@ public class Climb extends SubsystemBase{
 
         c_Climb
                 .idleMode(IdleMode.kBrake)
-                .smartCurrentLimit(30)
+                .smartCurrentLimit(60)
                 
                 .inverted(false);
-        //c_Climb.softLimit
-           // .forwardSoftLimit(30.0)
-           // .forwardSoftLimitEnabled(true)
-            //.reverseSoftLimit(-300)//230
-            //.reverseSoftLimitEnabled(true);
+        c_Climb.softLimit
+           .forwardSoftLimit(60.0)
+           .forwardSoftLimitEnabled(false)
+            .reverseSoftLimit(0)
+            .reverseSoftLimitEnabled(true);
                 
                 
         c_Climb.encoder

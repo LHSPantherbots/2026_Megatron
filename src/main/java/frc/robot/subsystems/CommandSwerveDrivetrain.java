@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
-import static edu.wpi.first.units.Units.*;
+import static edu.wpi.first.units.Units.Second;
+import static edu.wpi.first.units.Units.Volts;
 
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -10,7 +11,6 @@ import com.ctre.phoenix6.Utils;
 import com.ctre.phoenix6.swerve.SwerveDrivetrainConstants;
 import com.ctre.phoenix6.swerve.SwerveModuleConstants;
 import com.ctre.phoenix6.swerve.SwerveRequest;
-
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
@@ -31,7 +31,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-
 import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 
 /**
@@ -394,12 +393,16 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     }else{
       x2 = blue_hub_x;
       y2 = blue_hub_y;
-
+ 
     }
 
     values[0] = Math.sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1))); //Distance
-    values[1] = Math.atan((y2-y1)/(x2-x1)); //Angle
 
+    if (x2-x1 > 0)
+        values[1] = Math.atan((y2-y1)/(x2-x1)); //Angle
+    else if (x2-x1 < 0)
+        values[1] = Math.PI; //Angle faces hub when in nutral zone
+   
     return values;
   }
 }

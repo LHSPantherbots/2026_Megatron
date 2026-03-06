@@ -203,21 +203,26 @@ public class RobotContainer {
       );
 
       m_driverController.x().whileTrue(new LauncherHoodAuto(launcher, hood, drivetrain));
-
-
-
-        //=================   OPERATOR CONTROLLER ===============================
-        m_operatorController.x().whileTrue( 
-            new ConditionalCommand( 
-                new RunCommand(() -> intakeRoller.eject(), intakeRoller), // if the left pumper is pressed while x is pressed it ejects
-                new RunCommand(() -> intakeRoller.intake(), intakeRoller), // if only the x is pressed it intakes
-                m_operatorController.leftBumper()::getAsBoolean ) );
-
-     
-        //operator must hold the left bumper and move the right joystick up or down to manually move the hood.  has a deadband to keep it from moving with stick drift
-        m_operatorController.leftBumper().whileTrue(new RunCommand(()->hood.manualMove(MathUtil.applyDeadband(m_operatorController.getRightY(),.1)), hood));
-        m_operatorController.leftBumper().onFalse(new InstantCommand(()->hood.setHoodSetpointToCurrentPosition(),hood));
-        
+      
+          //slow mode for better control when the right bumper is held, reduces max speed and max angular rate to 25% of their normal values
+          m_driverController.rightBumper().whileTrue(drivetrain.applyRequest(() ->
+          drive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) // Drive forward with negative Y (forward)
+         .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) // Drive left with negative X (left)
+          .withRotationalRate((m_driverController.getLeftTriggerAxis()-m_driverController.getRightTriggerAxis()) * MaxAngularRate * .25)));  
+      
+      
+      //=================   OPERATOR CONTROLLER ===============================
+      m_operatorController.x().whileTrue( 
+          new ConditionalCommand( 
+              new RunCommand(() -> intakeRoller.eject(), intakeRoller), // if the left pumper is pressed while x is pressed it ejects
+              new RunCommand(() -> intakeRoller.intake(), intakeRoller), // if only the x is pressed it intakes
+              m_operatorController.leftBumper()::getAsBoolean ) );
+              
+              
+              //operator must hold the left bumper and move the right joystick up or down to manually move the hood.  has a deadband to keep it from moving with stick drift
+              m_operatorController.leftBumper().whileTrue(new RunCommand(()->hood.manualMove(MathUtil.applyDeadband(m_operatorController.getRightY(),.1)), hood));
+              m_operatorController.leftBumper().onFalse(new InstantCommand(()->hood.setHoodSetpointToCurrentPosition(),hood));
+              
 
         //Launcher Setpoints (D-Pad)
         m_operatorController.povDown().onTrue(new InstantCommand(()->hood.setHoodShort(), hood));
