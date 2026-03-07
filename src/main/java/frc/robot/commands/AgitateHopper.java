@@ -45,16 +45,18 @@ public class AgitateHopper extends Command {
     intakePivot.motionMagicSetPosition();
     Integer adjustedVal = timer/delay;
 
-    if (adjustedVal % 2 == 0){
-      System.out.println("mid");
-      intakePivot.setIntakeMid();
-    }else{
-      System.out.println("down");
-      intakePivot.setIntakeDown();;
-    }
+    if(timer > 100){ //if statement to delay the pivot movement so that the agitator can start moving first and not get stuck
+        if (adjustedVal % 2 == 0){
+          System.out.println("mid");
+          intakePivot.setIntakeMid();
+        }else{
+          System.out.println("down");
+          intakePivot.setIntakeDown();;
+        }
+      }
     
-    //System.out.println("timer:" + timer);
-    //System.out.println("adjustedVal" + adjustedVal);
+    // System.out.println("timer:" + timer);
+    // System.out.println("adjustedVal" + adjustedVal);
 
     
     

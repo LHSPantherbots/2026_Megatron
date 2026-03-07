@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
-import static edu.wpi.first.units.Units.*;
+import static edu.wpi.first.units.Units.Second;
+import static edu.wpi.first.units.Units.Volts;
 
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -10,7 +11,6 @@ import com.ctre.phoenix6.Utils;
 import com.ctre.phoenix6.swerve.SwerveDrivetrainConstants;
 import com.ctre.phoenix6.swerve.SwerveModuleConstants;
 import com.ctre.phoenix6.swerve.SwerveRequest;
-
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
@@ -26,10 +26,11 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.RobotController;
+import edu.wpi.first.wpilibj.smartdashboard.Field2d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
-
 import frc.robot.generated.TunerConstants.TunerSwerveDrivetrain;
 
 /**
@@ -44,12 +45,25 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     private Notifier m_simNotifier = null;
     private double m_lastSimTime;
 
+
+    Double blue_hub_x = 4.6116;
+    Double blue_hub_y = 4.0213;
+
+    Double red_hub_x = 11.9014;
+    Double red_hub_y = 4.0213;
+
+
+    private Optional<Alliance> alliance = DriverStation.getAlliance();  //Put somewhere else to check periodically
+
+
     /* Blue alliance sees forward as 0 degrees (toward red alliance wall) */
     private static final Rotation2d kBlueAlliancePerspectiveRotation = Rotation2d.kZero;
     /* Red alliance sees forward as 180 degrees (toward blue alliance wall) */
     private static final Rotation2d kRedAlliancePerspectiveRotation = Rotation2d.k180deg;
     /* Keep track if we've ever applied the operator perspective before or not */
     private boolean m_hasAppliedOperatorPerspective = false;
+
+    private final Field2d m_Field = new Field2d();
 
     /** Swerve request to apply during robot-centric path following */
     private final SwerveRequest.ApplyRobotSpeeds m_pathApplyRobotSpeeds = new SwerveRequest.ApplyRobotSpeeds();
@@ -280,6 +294,21 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
                 m_hasAppliedOperatorPerspective = true;
             });
         }
+    
+        m_Field.setRobotPose(this.getState().Pose);
+        SmartDashboard.putData("Field", m_Field);
+        this.alliance = DriverStation.getAlliance();
+
+        SmartDashboard.putNumber("Front Left Swerve Position", this.getState().ModulePositions[0].angle.getDegrees());
+        SmartDashboard.putNumber("Front Right Swerve Position", this.getState().ModulePositions[1].angle.getDegrees());
+        SmartDashboard.putNumber("Back Left Swerve Position", this.getState().ModulePositions[2].angle.getDegrees());
+        SmartDashboard.putNumber("Back Right Swerve Position", this.getState().ModulePositions[3].angle.getDegrees());
+        SmartDashboard.putNumber("Gyro Angle", this.getPigeon2().getYaw().getValueAsDouble());
+        SmartDashboard.putString("Alliance", alliance.toString());
+    
+    
+    
+    
     }
 
     private void startSimThread() {
@@ -341,4 +370,39 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     public Optional<Pose2d> samplePoseAt(double timestampSeconds) {
         return super.samplePoseAt(Utils.fpgaToCurrentTime(timestampSeconds));
     }
+
+
+
+    public Optional<Alliance> getAlliance() {
+        return this.alliance;
+    }
+
+
+    public double [] getLengthAndAngleFromHub(){
+    double[] values = new double[2];
+        
+    double x1 = this.getState().Pose.getX();
+    double y1 = this.getState().Pose.getY();
+    double x2 = 0.0;
+    double y2 = 0.0;
+
+    if (getAlliance().get()==Alliance.Red){
+      x2 = red_hub_x;
+      y2 = red_hub_y;
+
+    }else{
+      x2 = blue_hub_x;
+      y2 = blue_hub_y;
+ 
+    }
+
+    values[0] = Math.sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1))); //Distance
+
+    if (x2-x1 > 0)
+        values[1] = Math.atan((y2-y1)/(x2-x1)); //Angle
+    else if (x2-x1 < 0)
+        values[1] = Math.PI; //Angle faces hub when in nutral zone
+   
+    return values;
+  }
 }

@@ -10,9 +10,13 @@ import com.ctre.phoenix6.signals.InvertedValue;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 import frc.robot.util.Constants.CanIdConstants;
+import frc.robot.Positions;
 
 public class Launcher extends SubsystemBase {
+
+  Positions position; 
 
   private final TalonFX leftLauncher;
   private final TalonFX rightLauncher;
@@ -47,6 +51,7 @@ public class Launcher extends SubsystemBase {
 
     base.Voltage.withPeakForwardVoltage(11)
                 .withPeakReverseVoltage(-11);
+    
 
     // Slot 1 (torque velocity)
     base.Slot1.kS = 2.5;
@@ -56,6 +61,11 @@ public class Launcher extends SubsystemBase {
 
     base.TorqueCurrent.withPeakForwardTorqueCurrent(60)
                       .withPeakReverseTorqueCurrent(-60);
+    base.CurrentLimits.StatorCurrentLimitEnable = true;
+    base.CurrentLimits.StatorCurrentLimit = 60; //Output Current Limit
+    base.CurrentLimits.SupplyCurrentLimitEnable = true;
+    base.CurrentLimits.SupplyCurrentLimit = 40; //Output Current Limit
+
 
     // -----------------------------
     // Left config
@@ -93,8 +103,8 @@ public class Launcher extends SubsystemBase {
   }
 
   public void closedLoopVelocityLaunchVoltage() {
-    leftLauncher.setControl(m_velocityVoltage.withVelocity(launcherSetpoint));
-    rightLauncher.setControl(m_velocityVoltage.withVelocity(launcherSetpoint));
+    leftLauncher.setControl(m_velocityVoltage.withVelocity(launcherSetpoint).withEnableFOC(false));
+    rightLauncher.setControl(m_velocityVoltage.withVelocity(launcherSetpoint).withEnableFOC(false));
   }
 
   public void closedLoopVelocityTorqueLaunch() {
@@ -128,4 +138,8 @@ public class Launcher extends SubsystemBase {
     setLauncherSetpoint(extraLongSetpoint);
   }
   
+    public void setLauncherMode(double launcherSpeed) {
+      setLauncherSetpoint(launcherSpeed);
+    }
+
 }

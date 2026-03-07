@@ -32,7 +32,15 @@ public class Climb extends SubsystemBase{
 
         c_Climb
                 .idleMode(IdleMode.kBrake)
-                .smartCurrentLimit(37)
+                .smartCurrentLimit(60)
+                
+                .inverted(false);
+        c_Climb.softLimit
+           .forwardSoftLimit(60.0)
+           .forwardSoftLimitEnabled(false)
+            .reverseSoftLimit(0)
+            .reverseSoftLimitEnabled(true);
+                
                 
                 .inverted(false); // TODO: should be able to removed
        

@@ -23,6 +23,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
+import frc.robot.commands.LauncherHoodAuto;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CenterDrive;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -49,6 +50,12 @@ public class RobotContainer {
     private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
     private final SwerveRequest.RobotCentric forwardStraight = new SwerveRequest.RobotCentric()
             .withDriveRequestType(DriveRequestType.OpenLoopVoltage);
+
+    private final SwerveRequest.RobotCentricFacingAngle robotDrive = new SwerveRequest.RobotCentricFacingAngle()
+            .withDeadband(MaxSpeed * 0.05)
+            .withDriveRequestType(DriveRequestType.OpenLoopVoltage)
+            .withHeadingPID(16.0,0,0)
+            .withTargetRateFeedforward(0.0).withMaxAbsRotationalRate(MaxAngularRate*.5);
 
     private final Telemetry logger = new Telemetry(MaxSpeed);
 
@@ -193,18 +200,34 @@ public class RobotContainer {
 
 
 
-        //=================   OPERATOR CONTROLLER ===============================
-        m_operatorController.x().whileTrue( 
-            new ConditionalCommand( 
-                new RunCommand(() -> intakeRoller.eject(), intakeRoller), // if the left pumper is pressed while x is pressed it ejects
-                new RunCommand(() -> intakeRoller.intake(), intakeRoller), // if only the x is pressed it intakes
-                m_operatorController.leftBumper()::getAsBoolean ) );
+      m_driverController.x().whileTrue(
+        drivetrain.applyRequest(() ->
+            robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) // Need to update for desired area
+        .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) 
+        .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1])))
+      );
 
-     
-        //operator must hold the left bumper and move the right joystick up or down to manually move the hood.  has a deadband to keep it from moving with stick drift
-        m_operatorController.leftBumper().whileTrue(new RunCommand(()->hood.manualMove(MathUtil.applyDeadband(m_operatorController.getRightY(),.1)), hood));
-        m_operatorController.leftBumper().onFalse(new InstantCommand(()->hood.setHoodSetpointToCurrentPosition(),hood));
-        
+      m_driverController.x().whileTrue(new LauncherHoodAuto(launcher, hood, drivetrain));
+      
+          //slow mode for better control when the right bumper is held, reduces max speed and max angular rate to 25% of their normal values
+          m_driverController.rightBumper().whileTrue(drivetrain.applyRequest(() ->
+          drive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) // Drive forward with negative Y (forward)
+         .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) // Drive left with negative X (left)
+          .withRotationalRate((m_driverController.getLeftTriggerAxis()-m_driverController.getRightTriggerAxis()) * MaxAngularRate * .25)));  
+      
+      
+      //=================   OPERATOR CONTROLLER ===============================
+      m_operatorController.x().whileTrue( 
+          new ConditionalCommand( 
+              new RunCommand(() -> intakeRoller.eject(), intakeRoller), // if the left pumper is pressed while x is pressed it ejects
+              new RunCommand(() -> intakeRoller.intake(), intakeRoller), // if only the x is pressed it intakes
+              m_operatorController.leftBumper()::getAsBoolean ) );
+              
+              
+              //operator must hold the left bumper and move the right joystick up or down to manually move the hood.  has a deadband to keep it from moving with stick drift
+              m_operatorController.leftBumper().whileTrue(new RunCommand(()->hood.manualMove(MathUtil.applyDeadband(m_operatorController.getRightY(),.1)), hood));
+              m_operatorController.leftBumper().onFalse(new InstantCommand(()->hood.setHoodSetpointToCurrentPosition(),hood));
+              
 
         //Launcher Setpoints (D-Pad)
         m_operatorController.povDown().onTrue(new InstantCommand(()->hood.setHoodShort(), hood));

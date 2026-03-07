@@ -26,9 +26,12 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.util.Constants.CanIdConstants;
+import frc.robot.Positions;
 
 public class Hood extends SubsystemBase {
 
+  Positions position;
+  
   private  SparkMax hoodLeft;
   private  SparkMax hoodRight;
   private  SparkMaxConfig c_hoodGlobal = new SparkMaxConfig(); 
@@ -177,6 +180,8 @@ public class Hood extends SubsystemBase {
     setHoodSetpoint(extraLongSetpoint);
   }
 
-
+  public void setHoodMode(double hoodAngle) {
+      setHoodSetpoint(hoodAngle);
+    }
 
 }

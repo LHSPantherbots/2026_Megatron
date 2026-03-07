@@ -57,7 +57,7 @@ public class IntakeRoller extends SubsystemBase {
 
 
   public void intake(){
-    manualDrive(-.7);
+    manualDrive(-.9);
   }
 
   public void reverseIntake(){
@@ -65,7 +65,7 @@ public class IntakeRoller extends SubsystemBase {
   }
 
   public void eject(){
-    manualDrive(.7);
+    manualDrive(.9);
   }
 
   public void stop(){
