@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.1834,
+        "y": 0.916777777777777
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.092022222222222,
+        "y": 1.4332333333333316
+      },
+      "isLocked": false,
+      "linkedName": "bottom underpass"
+    },
+    {
+      "anchor": {
+        "x": 1.0396222222222224,
+        "y": 2.8266888888888877
+      },
+      "prevControl": {
+        "x": 1.4391444444444443,
+        "y": 2.1055999999999995
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "bottom climb"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 64.0934920004856
+  },
+  "useDefaultConstraints": true
+}

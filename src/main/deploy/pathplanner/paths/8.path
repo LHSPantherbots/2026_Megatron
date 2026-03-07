@@ -1,0 +1,70 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 6.671911111111111,
+        "y": 5.818233333333333
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.914446736147444,
+        "y": 5.878867239592417
+      },
+      "isLocked": false,
+      "linkedName": "top Centrol zone ball"
+    },
+    {
+      "anchor": {
+        "x": 7.461211111111112,
+        "y": 5.6915555555555555
+      },
+      "prevControl": {
+        "x": 7.254231438489029,
+        "y": 5.831767591847934
+      },
+      "nextControl": {
+        "x": 7.763288888888889,
+        "y": 5.486922222222222
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 7.5684000000000005,
+        "y": 2.8072000000000004
+      },
+      "prevControl": {
+        "x": 7.880222222222223,
+        "y": 4.746344444444444
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "bottom central zome"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -141.76617482255298
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}
