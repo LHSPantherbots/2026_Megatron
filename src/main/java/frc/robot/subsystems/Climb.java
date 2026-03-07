@@ -40,9 +40,7 @@ public class Climb extends SubsystemBase{
            .forwardSoftLimitEnabled(false)
             .reverseSoftLimit(0)
             .reverseSoftLimitEnabled(true);
-                
-                
-                .inverted(false); // TODO: should be able to removed
+            
        
         c_Climb.encoder
                 
