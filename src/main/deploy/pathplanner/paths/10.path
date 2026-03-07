@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.1834,
-        "y": 0.916777777777777
+        "x": 7.085545617173524,
+        "y": 6.963685152057245
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.092022222222222,
-        "y": 1.4332333333333316
+        "x": 5.994167839395746,
+        "y": 7.4801407076128
       },
       "isLocked": false,
       "linkedName": "bottom underpass"
@@ -48,7 +48,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 64.0934920004856
+    "rotation": -92.33730585912383
   },
   "useDefaultConstraints": true
 }
