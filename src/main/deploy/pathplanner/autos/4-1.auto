@@ -7,25 +7,31 @@
         {
           "type": "path",
           "data": {
-            "pathName": "middle start to launch"
+            "pathName": "12"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "launcher to top bump"
+            "pathName": "13"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "run through fual"
+            "pathName": "9"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "central over bottem bump to aim"
+            "pathName": "11"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "3"
           }
         }
       ]

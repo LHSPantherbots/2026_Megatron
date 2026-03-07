@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.4159777777777778,
-        "y": 0.5952111111111105
+        "x": 3.1834,
+        "y": 0.916777777777777
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.4354666666666666,
-        "y": 1.4429777777777781
+        "x": 2.092022222222222,
+        "y": 1.4332333333333316
       },
       "isLocked": false,
-      "linkedName": "outpost"
+      "linkedName": "bottom underpass"
     },
     {
       "anchor": {
-        "x": 1.254,
-        "y": 1.618377777777778
+        "x": 1.0396222222222224,
+        "y": 2.8266888888888877
       },
       "prevControl": {
-        "x": 1.117577777777778,
-        "y": 1.1506444444444446
+        "x": 1.4391444444444443,
+        "y": 2.1055999999999995
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "bottom launch"
+      "linkedName": "bottom climb"
     }
   ],
   "rotationTargets": [],
@@ -42,13 +42,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 39.09385888622933
+    "rotation": 0.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 180.0
+    "rotation": 64.0934920004856
   },
   "useDefaultConstraints": true
 }

@@ -28,11 +28,9 @@ import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Hood;
 import frc.robot.subsystems.Hopper;
+import frc.robot.subsystems.IntakePivot;
 import frc.robot.subsystems.IntakeRoller;
-<<<<<<< HEAD
-=======
 
->>>>>>> 8c9569ef37329948fa364bbb9341b1da4ea47f5c
 import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.Launcher;
 
@@ -98,12 +96,7 @@ public class RobotContainer {
         // has a deadband to keep it from moving with stick drift
         centerDrive.setDefaultCommand(
             new RunCommand(
-<<<<<<< HEAD
-                ()->centerDrive.manualDrive(MathUtil.applyDeadband(m_driverController.getRightY(), 0.09)), centerDrive )
-=======
-                ()->centerDrive.manualDrive(-m_driverController.getRightY()), centerDrive )
->>>>>>> 8c9569ef37329948fa364bbb9341b1da4ea47f5c
-        );
+                ()->centerDrive.manualDrive(MathUtil.applyDeadband(m_driverController.getRightY(), 0.09)), centerDrive ));
         // center wheel stop when not in use
         intakeRoller.setDefaultCommand(
             new RunCommand(
