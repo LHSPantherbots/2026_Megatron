@@ -13,12 +13,6 @@
         {
           "type": "path",
           "data": {
-            "pathName": null
-          }
-        },
-        {
-          "type": "path",
-          "data": {
             "pathName": "Left Trench Return"
           }
         }
