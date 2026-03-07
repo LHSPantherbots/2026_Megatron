@@ -3,14 +3,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.Hood;
-import frc.robot.Positions;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 
 public class LauncherHoodAuto extends Command {
     Launcher launcher;
     Hood hood;
     CommandSwerveDrivetrain drivetrain;
-    boolean noteWasDetected = false;
     boolean shouldEnd = false;
     
     public LauncherHoodAuto(
@@ -35,12 +33,14 @@ public class LauncherHoodAuto extends Command {
 
     @Override
     public void execute() {
-
+        this.hood.closedLoopHood();
+        this.launcher.closedLoopVelocityLaunchVoltage();
     }
 
     @Override
     public void end(boolean interrupted) {
-      
+      this.hood.setHoodShort();
+      this.launcher.stopLauncher();
     }
 
     @Override

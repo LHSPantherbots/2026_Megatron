@@ -3,19 +3,19 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IntakePivot;
 
-public class IntakeUpCmd extends Command {
+public class IntakeDownCmd extends Command {
     IntakePivot intakePivot;
     boolean shouldEnd = false;
     
 
-    public IntakeUpCmd( IntakePivot intakePivot) {
+    public IntakeDownCmd( IntakePivot intakePivot) {
         this.intakePivot = intakePivot;
         addRequirements(intakePivot);
     }
 
     @Override
     public void initialize() {
-      this.intakePivot.setIntakeUp();
+      this.intakePivot.setIntakeDown();
     }
 
     @Override

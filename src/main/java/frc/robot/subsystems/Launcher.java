@@ -119,6 +119,7 @@ public class Launcher extends SubsystemBase {
   public void stopLauncher(){
     leftLauncher.set(0);
     rightLauncher.set(0);
+    setLauncherSetpoint(0.0);
   }
   
 
