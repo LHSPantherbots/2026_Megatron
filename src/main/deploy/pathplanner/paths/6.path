@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.331155492154065,
-        "y": 4.584893009985735
+        "x": 3.6024111111111115,
+        "y": 0.858311111111111
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.101766666666667,
-        "y": 4.8340444444444435
+        "x": 3.3554703697788444,
+        "y": 0.8193204677428576
       },
       "isLocked": false,
-      "linkedName": "depot to middle launch"
+      "linkedName": "bottom start"
     },
     {
       "anchor": {
-        "x": 1.0883444444444443,
-        "y": 4.6878777777777785
+        "x": 0.40623333333333345,
+        "y": 0.702399999999999
       },
       "prevControl": {
-        "x": 1.6242888888888891,
-        "y": 4.580688888888889
+        "x": 0.6985666666666668,
+        "y": 0.7413777777777772
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "top tower"
+      "linkedName": "outpost"
     }
   ],
   "rotationTargets": [],
@@ -48,7 +48,7 @@
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -15.561042699493049
+    "rotation": 180.0
   },
   "useDefaultConstraints": true
 }

@@ -7,25 +7,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "bottom start to outpost"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.5
+            "pathName": "7"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "outpost to bottom launch"
+            "pathName": "8"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "bottom launch to bottom tower"
+            "pathName": "9"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "10"
           }
         }
       ]
