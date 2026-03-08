@@ -26,7 +26,8 @@ public class Launcher extends SubsystemBase {
   private double shortSetpoint = 50;
   private double midSetpoint = 55;
   private double longSetpoint = 60;
-  private double extraLongSetpoint = 70;
+  private double extraLongSetpoint = 75; //5.2 meters
+  private double alloableError = 10;
 
   private final VelocityVoltage m_velocityVoltage = new VelocityVoltage(0).withSlot(0);
   private final VelocityTorqueCurrentFOC m_velocityTorque = new VelocityTorqueCurrentFOC(0).withSlot(1);
@@ -141,6 +142,18 @@ public class Launcher extends SubsystemBase {
   
     public void setLauncherMode(double launcherSpeed) {
       setLauncherSetpoint(launcherSpeed);
+    }
+
+    public boolean isAtSpeed(){
+      double errorLeft = Math.abs(leftLauncher.getVelocity().getValueAsDouble() - launcherSetpoint);
+      double errorRight = Math.abs(rightLauncher.getVelocity().getValueAsDouble() - launcherSetpoint);
+      double error = Math.max(errorLeft, errorRight);
+
+      if(error > alloableError){
+        return false;
+      }else{
+        return true;
+      }
     }
 
 }

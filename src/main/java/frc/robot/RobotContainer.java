@@ -28,6 +28,8 @@ import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.IntakeDownCmd;
 import frc.robot.commands.LauncherHoodAuto;
 import frc.robot.commands.LauncherLongCmd;
+import frc.robot.commands.LauncherMidCmd;
+import frc.robot.commands.LauncherStopCmd;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CenterDrive;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -87,12 +89,15 @@ public class RobotContainer {
     private final SendableChooser<Command> autoChooser;
 
     public RobotContainer() {
-        NamedCommands.registerCommand("IntakeDownCmd", new IntakeDownCmd(intakePivot));
-        NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller));
-        NamedCommands.registerCommand("RunLauncher", new LauncherLongCmd(launcher));
-        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder));
-        NamedCommands.registerCommand("StopLauncher", new RunCommand(()->launcher.stopLauncher(),launcher));
-        NamedCommands.registerCommand("HoodDown", new RunCommand(()->hood.setHoodShort(),hood));
+
+        NamedCommands.registerCommand("IntakeDownCmd", new IntakeDownCmd(intakePivot, true).withTimeout(2.0));
+         NamedCommands.registerCommand("IntakeDownCmdSafe", new IntakeDownCmd(intakePivot, true));
+        NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(6.5));
+        NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true));
+        NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
+        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(5.0));
+        NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true));
+       
 
         autoChooser = AutoBuilder.buildAutoChooser("Tests");
         SmartDashboard.putData("Auto Mode", autoChooser);

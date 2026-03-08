@@ -6,13 +6,13 @@ import frc.robot.subsystems.Hood;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.Leds;
 
-public class LauncherShortCmd extends Command {
+public class LauncherStopCmd extends Command {
     Launcher launcher;
     Hood hood;
     Leds leds;
     boolean finishes;
 
-    public LauncherShortCmd(Launcher launcher, Hood hood, Leds leds, boolean finishes) {
+    public LauncherStopCmd(Launcher launcher, Hood hood, Leds leds, boolean finishes) {
         this.launcher = launcher;
         this.hood = hood;
         this.leds = leds;
@@ -22,28 +22,28 @@ public class LauncherShortCmd extends Command {
 
     @Override
     public void initialize() {
-        this.launcher.setLauncherShort();
+        this.launcher.stopLauncher();
         this.hood.setHoodShort();
-        this.leds.green();
     }
 
     @Override
     public void execute() {
         this.launcher.closedLoopVelocityLaunchVoltage();
         this.hood.closedLoopHood();
-        this.leds.green();
+        this.leds.rainbow();
     }
 
     @Override
     public void end(boolean interrupted) {
         this.launcher.closedLoopVelocityLaunchVoltage();
         this.hood.closedLoopHood();
+        this.leds.rainbow();
     }
 
     @Override
     public boolean isFinished() {
         if (this.finishes) {
-        return (this.launcher.isAtSpeed() && this.hood.isAtAngle());
+        return (this.hood.isAtAngle());
         } else {
         return false;
         }

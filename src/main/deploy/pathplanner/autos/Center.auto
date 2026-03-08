@@ -1,0 +1,50 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Middle Center to 2 m Center"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "LauncherMid"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Agitate"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

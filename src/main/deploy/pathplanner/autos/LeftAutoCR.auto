@@ -1,0 +1,62 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "IntakeDownCmd"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Left Trench Start"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Left Trench Return"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "LauncherLong"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Agitate"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

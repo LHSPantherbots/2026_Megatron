@@ -5,7 +5,7 @@
     "data": {
       "commands": [
         {
-          "type": "race",
+          "type": "parallel",
           "data": {
             "commands": [
               {
@@ -13,18 +13,12 @@
                 "data": {
                   "name": "IntakeDownCmd"
                 }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 0.25
-                }
               }
             ]
           }
         },
         {
-          "type": "race",
+          "type": "parallel",
           "data": {
             "commands": [
               {

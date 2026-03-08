@@ -31,7 +31,7 @@ public class IntakePivot extends SubsystemBase {
   private final DutyCycleOut talonOut = new DutyCycleOut(0);
   private final MotionMagicVoltage m_mmReq = new MotionMagicVoltage(0);
   private double intakePivotSetpoint = .172;
-  private double allowableError = 1.0;
+  private double allowableError = .02;
 
   private final double intakeGearRatio = 72.0/20.0 * 5.0 * 4.0;
 
@@ -155,7 +155,7 @@ public class IntakePivot extends SubsystemBase {
     intakePivotSetpoint = pos;
   }
 
-  public boolean isAtHeight() {
+  public boolean isAtPosition() {
     double error = getPosition() - intakePivotSetpoint;
     return (Math.abs(error) < allowableError);
   }
@@ -171,6 +171,8 @@ public class IntakePivot extends SubsystemBase {
   public void setIntakeMid(){
     setIntakeSetpoint(0.04);
   }
+
+
 
 
 

@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.Hood;
@@ -22,7 +23,8 @@ public class LauncherHoodAuto extends Command {
     @Override
     public void initialize() {
         double[] values = drivetrain.getLengthAndAngleFromHub();
-        double distance = values[1];
+        double distance = values[0];
+        SmartDashboard.putNumber("Distance", distance);
 
         double hoodAngle = 0.02*(distance) + 0.77;
         hood.setHoodMode(hoodAngle);
@@ -35,6 +37,7 @@ public class LauncherHoodAuto extends Command {
     public void execute() {
         this.hood.closedLoopHood();
         this.launcher.closedLoopVelocityLaunchVoltage();
+        
     }
 
     @Override
@@ -45,7 +48,7 @@ public class LauncherHoodAuto extends Command {
 
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
  }
 

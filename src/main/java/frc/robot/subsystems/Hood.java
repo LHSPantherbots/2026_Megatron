@@ -42,7 +42,7 @@ public class Hood extends SubsystemBase {
   private final SparkClosedLoopController hoodController;
 
  
-  private double allowableError = 0.1;
+  private double allowableError = 0.02;
   //hood encoder is zeored when unhooked from the actuators and hood is lifted 
   //vertically until it hits hard stop of the encoder mount
   private double hoodMin = .79; // value read all the way down
