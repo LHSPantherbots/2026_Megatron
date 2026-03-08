@@ -21,18 +21,6 @@
           "data": {
             "pathName": "Left Trench Return"
           }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "11"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "3"
-          }
         }
       ]
     }

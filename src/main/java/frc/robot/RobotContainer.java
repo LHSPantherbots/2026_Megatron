@@ -11,6 +11,7 @@ import com.ctre.phoenix6.swerve.SwerveRequest;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.commands.FollowPathCommand;
+import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -24,7 +25,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
+import frc.robot.commands.IntakeDownCmd;
 import frc.robot.commands.LauncherHoodAuto;
+import frc.robot.commands.LauncherLongCmd;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CenterDrive;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
@@ -40,6 +43,8 @@ import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.Leds;
 
 public class RobotContainer {
+
+
     private double MaxSpeed = 1.0 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
     private double MaxAngularRate = RotationsPerSecond.of(0.75).in(RadiansPerSecond); // 3/4 of a rotation per second max angular velocity
 
@@ -82,6 +87,13 @@ public class RobotContainer {
     private final SendableChooser<Command> autoChooser;
 
     public RobotContainer() {
+        NamedCommands.registerCommand("IntakeDownCmd", new IntakeDownCmd(intakePivot));
+        NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller));
+        NamedCommands.registerCommand("RunLauncher", new LauncherLongCmd(launcher));
+        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder));
+        NamedCommands.registerCommand("StopLauncher", new RunCommand(()->launcher.stopLauncher(),launcher));
+        NamedCommands.registerCommand("HoodDown", new RunCommand(()->hood.setHoodShort(),hood));
+
         autoChooser = AutoBuilder.buildAutoChooser("Tests");
         SmartDashboard.putData("Auto Mode", autoChooser);
 
@@ -209,6 +221,7 @@ public class RobotContainer {
       );
 
       m_driverController.x().whileTrue(new LauncherHoodAuto(launcher, hood, drivetrain));
+      m_driverController.povDown().onTrue(new InstantCommand(()-> drivetrain.setposefromlimelight(),drivetrain));
       
           //slow mode for better control when the right bumper is held, reduces max speed and max angular rate to 25% of their normal values
           m_driverController.rightBumper().whileTrue(drivetrain.applyRequest(() ->
