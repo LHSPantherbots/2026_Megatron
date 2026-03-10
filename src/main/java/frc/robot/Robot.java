@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotInit(){
-        LimelightHelpers.SetFiducialIDFiltersOverride("limelight-front", new int[]{24,20,26}); // Only track these tag IDs
+        LimelightHelpers.SetFiducialIDFiltersOverride("limelight-front", new int[]{}); // Only track these tag IDs
     }
 
     @Override

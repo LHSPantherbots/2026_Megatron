@@ -5,28 +5,15 @@
     "data": {
       "commands": [
         {
-          "type": "parallel",
+          "type": "named",
           "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeDownCmd"
-                }
-              }
-            ]
+            "name": "IntakeDownCmdSafe"
           }
         },
         {
           "type": "parallel",
           "data": {
             "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "IntakeDownCmd"
-                }
-              },
               {
                 "type": "named",
                 "data": {
@@ -43,72 +30,39 @@
           }
         },
         {
-          "type": "race",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Left Trench Return"
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 7.0
-                }
-              }
-            ]
+            "pathName": "Left Trench Return"
           }
         },
         {
-          "type": "race",
+          "type": "named",
           "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "RunLauncher"
-                }
-              },
-              {
-                "type": "sequential",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "wait",
-                      "data": {
-                        "waitTime": 0.5
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Agitate"
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 5.0
-                }
-              }
-            ]
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoAimDive"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoLauncher"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Agitate"
           }
         },
         {
           "type": "named",
           "data": {
             "name": "StopLauncher"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "HoodDown"
           }
         }
       ]

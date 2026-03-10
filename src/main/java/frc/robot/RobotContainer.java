@@ -27,6 +27,7 @@ import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.IntakeDownCmd;
 import frc.robot.commands.LauncherHoodAuto;
+import frc.robot.commands.LauncherHoodAutoPersist;
 import frc.robot.commands.LauncherLongCmd;
 import frc.robot.commands.LauncherMidCmd;
 import frc.robot.commands.LauncherStopCmd;
@@ -91,13 +92,15 @@ public class RobotContainer {
     public RobotContainer() {
 
         NamedCommands.registerCommand("IntakeDownCmd", new IntakeDownCmd(intakePivot, true).withTimeout(2.0));
-         NamedCommands.registerCommand("IntakeDownCmdSafe", new IntakeDownCmd(intakePivot, true));
+        NamedCommands.registerCommand("IntakeDownCmdSafe", new IntakeDownCmd(intakePivot, true));
         NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(6.5));
         NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true));
         NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
-        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(5.0));
+        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(10.0));
         NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true));
-       
+        NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(1));
+        NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(10));
+        NamedCommands.registerCommand("SetPose", new InstantCommand(()-> drivetrain.setposefromlimelightFront(),drivetrain));
 
         autoChooser = AutoBuilder.buildAutoChooser("Tests");
         SmartDashboard.putData("Auto Mode", autoChooser);

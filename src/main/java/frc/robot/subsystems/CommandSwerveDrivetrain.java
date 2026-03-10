@@ -410,4 +410,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
   public void setposefromlimelight(){
     this.resetPose(LimelightHelpers.getBotPose2d_wpiBlue("limelight-rr"));
   }
+  public void setposefromlimelightFront(){
+    this.resetPose(LimelightHelpers.getBotPose2d_wpiBlue("limelight-front"));
+  }
 }
