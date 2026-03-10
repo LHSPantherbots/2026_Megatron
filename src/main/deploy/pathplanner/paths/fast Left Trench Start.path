@@ -3,48 +3,37 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.582922222222222,
-        "y": 4.015511111111111
+        "x": 3.5731777777777776,
+        "y": 7.3675999999999995
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.555314340703511,
-        "y": 4.263982044779516
+        "x": 4.164973166368515,
+        "y": 7.564025044722719
       },
       "isLocked": false,
-      "linkedName": "middle start"
+      "linkedName": "TopStart"
     },
     {
       "anchor": {
-        "x": 3.9629555555555553,
-        "y": 5.535644444444444
+        "x": 6.761037567084079,
+        "y": 6.979910554561717
       },
       "prevControl": {
-        "x": 3.582922222222222,
-        "y": 5.2627999999999995
-      },
-      "nextControl": {
-        "x": 4.43431866677703,
-        "y": 5.874058985834221
-      },
-      "isLocked": false,
-      "linkedName": null
-    },
-    {
-      "anchor": {
-        "x": 6.671911111111111,
-        "y": 5.818233333333333
-      },
-      "prevControl": {
-        "x": 6.4241041359404525,
-        "y": 5.785192403310577
+        "x": 6.468980322003578,
+        "y": 7.385545617173523
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "top Centrol zone ball"
+      "linkedName": "topStart_Trench"
     }
   ],
-  "rotationTargets": [],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -1.3194821197534194
+    }
+  ],
   "constraintZones": [],
   "pointTowardsZones": [],
   "eventMarkers": [],
@@ -58,7 +47,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 0.0
+    "rotation": -56.88865803962796
   },
   "reversed": false,
   "folder": null,

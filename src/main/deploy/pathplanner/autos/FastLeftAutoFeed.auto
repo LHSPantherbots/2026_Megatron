@@ -7,7 +7,13 @@
         {
           "type": "named",
           "data": {
-            "name": "IntakeDownCmd"
+            "name": "IntakeDownCmdSafe"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "fast Left Trench Start"
           }
         },
         {
@@ -17,7 +23,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Left Trench Start"
+                  "pathName": "New Path"
                 }
               },
               {
@@ -38,7 +44,19 @@
         {
           "type": "named",
           "data": {
-            "name": "LauncherLong"
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoAimDive"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoLauncher"
           }
         },
         {

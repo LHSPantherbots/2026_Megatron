@@ -8,11 +8,11 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.7994633273703045,
-        "y": 5.470948121645796
+        "x": 7.669660107334526,
+        "y": 5.50339892665474
       },
       "isLocked": false,
-      "linkedName": "2"
+      "linkedName": "TopMidpointcentral"
     },
     {
       "anchor": {
@@ -28,20 +28,20 @@
         "y": 7.302011412268189
       },
       "isLocked": false,
-      "linkedName": "bottom underpass"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.8891413237924866,
-        "y": 7.466672629695886
+        "x": 3.9215921288014313,
+        "y": 7.401771019677997
       },
       "prevControl": {
-        "x": 4.569543509272467,
-        "y": 7.431398002853067
+        "x": 4.601994314281412,
+        "y": 7.366496392835178
       },
       "nextControl": {
-        "x": 3.412577938433094,
-        "y": 7.491379480943937
+        "x": 3.445028743442039,
+        "y": 7.426477870926049
       },
       "isLocked": false,
       "linkedName": null
@@ -52,8 +52,8 @@
         "y": 6.768980322003578
       },
       "prevControl": {
-        "x": 2.931842576028622,
-        "y": 7.417996422182468
+        "x": 2.9156171735241503,
+        "y": 7.385545617173523
       },
       "nextControl": null,
       "isLocked": false,
@@ -79,7 +79,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -55.37228389043947
+    "rotation": -55.372283890439476
   },
   "reversed": false,
   "folder": null,

@@ -11,19 +11,25 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "fast Left Trench Start"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
               {
-                "type": "named",
+                "type": "path",
                 "data": {
-                  "name": "Intake"
+                  "pathName": "New Path"
                 }
               },
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "slow Left Trench Start"
+                  "name": "Intake"
                 }
               }
             ]
@@ -32,7 +38,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Left Trench Return"
+            "pathName": "TopFaulOverBump"
           }
         },
         {
