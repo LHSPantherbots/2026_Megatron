@@ -101,6 +101,9 @@ public class RobotContainer {
         NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(1));
         NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(10));
         NamedCommands.registerCommand("SetPose", new InstantCommand(()-> drivetrain.setposefromlimelightFront(),drivetrain));
+        NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
+        NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(3.5));
+
 
         autoChooser = AutoBuilder.buildAutoChooser("Tests");
         SmartDashboard.putData("Auto Mode", autoChooser);
@@ -216,8 +219,8 @@ public class RobotContainer {
         //==================  DRIVER CONTROLLER ===============================
 
     // Right bumper: climb up at a fixed speed. Left bumper: climb down (reverse).
-    m_driverController.rightBumper().whileTrue(new RunCommand(()->climb.manualDrive(0.75), climb));
-    m_driverController.leftBumper().whileTrue(new RunCommand(()->climb.manualDrive(-0.75), climb));
+    //m_driverController.rightBumper().whileTrue(new RunCommand(()->climb.manualDrive(0.75), climb));
+    //m_driverController.leftBumper().whileTrue(new RunCommand(()->climb.manualDrive(-0.75), climb));
 
 
 

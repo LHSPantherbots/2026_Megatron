@@ -11,28 +11,47 @@
           }
         },
         {
+          "type": "path",
+          "data": {
+            "pathName": "Bottom start heading fuel"
+          }
+        },
+        {
           "type": "parallel",
           "data": {
             "commands": [
               {
-                "type": "named",
+                "type": "path",
                 "data": {
-                  "name": "Intake"
+                  "pathName": "bottom nom nom"
                 }
               },
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "slow Left Trench Start"
+                  "name": "ShortIntake"
                 }
               }
             ]
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Left Trench Return"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "New New Path"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "CenterDrive"
+                }
+              }
+            ]
           }
         },
         {

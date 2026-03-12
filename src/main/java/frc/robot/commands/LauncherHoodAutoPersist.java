@@ -25,12 +25,22 @@ public class LauncherHoodAutoPersist extends Command {
         double[] values = drivetrain.getLengthAndAngleFromHub();
         double distance = values[0];
         SmartDashboard.putNumber("Distance", distance);
+        if (distance<3){
 
+        
         double hoodAngle = 0.02*(distance) + 0.77;
         hood.setHoodMode(hoodAngle);
 
         double launcherSpeed = 5*(distance) + 45;
         launcher.setLauncherMode(launcherSpeed);
+        }
+        else{
+            double hoodAngle = 0.0045*(distance) + 0.8164;
+        hood.setHoodMode(hoodAngle);
+
+        double launcherSpeed = 6.18*(distance) + 39.5;
+        launcher.setLauncherMode(launcherSpeed);    
+        }
     }
 
     @Override

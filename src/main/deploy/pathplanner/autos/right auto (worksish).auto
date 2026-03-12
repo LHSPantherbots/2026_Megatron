@@ -1,0 +1,86 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "IntakeDownCmdSafe"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "fast Left Trench Start"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "New Path"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "fast Left Trench Return"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.25
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoAimDive"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoLauncher"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Agitate"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

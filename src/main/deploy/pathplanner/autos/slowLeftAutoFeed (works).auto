@@ -11,25 +11,19 @@
           }
         },
         {
-          "type": "path",
-          "data": {
-            "pathName": "fast Left Trench Start"
-          }
-        },
-        {
           "type": "parallel",
           "data": {
             "commands": [
               {
-                "type": "path",
-                "data": {
-                  "pathName": "New Path"
-                }
-              },
-              {
                 "type": "named",
                 "data": {
                   "name": "Intake"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "slow Left Trench Start"
                 }
               }
             ]
@@ -48,15 +42,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "AutoAimDive"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "AutoLauncher"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              }
+            ]
           }
         },
         {
