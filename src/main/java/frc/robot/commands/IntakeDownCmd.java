@@ -17,6 +17,7 @@ public class IntakeDownCmd extends Command {
     @Override
     public void initialize() {
         this.intakePivot.setIntakeDown();
+        this.intakePivot.setQuickPID();
     }
 
     @Override
@@ -27,6 +28,7 @@ public class IntakeDownCmd extends Command {
     @Override
     public void end(boolean interrupted) {
         this.intakePivot.motionMagicSetPosition();
+        this.intakePivot.setSoftPID();
     }
 
     @Override

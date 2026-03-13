@@ -10,6 +10,7 @@ import com.ctre.phoenix6.StatusCode;
 import com.ctre.phoenix6.configs.CANcoderConfiguration;
 import com.ctre.phoenix6.configs.FeedbackConfigs;
 import com.ctre.phoenix6.configs.Slot0Configs;
+import com.ctre.phoenix6.configs.Slot1Configs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
@@ -93,6 +94,18 @@ public class IntakePivot extends SubsystemBase {
     slot0.kS = 0.25; // Approximately 0.25V to get the mechanism moving
     slot0.kG = -0.25; // 3V / 12V = 0.25 //tune upward until mechanism holds 
 
+    // Soft slot (down)
+    Slot1Configs slot1 = cfg.Slot1;
+    slot1.kP = 80/12.8;   // much softer
+    slot1.kI = 0;
+    slot1.kD = 0.02;
+    slot1.kV = 0.12;
+    slot1.kS = 0.15;
+    slot1.kG = -0.25;     // weaker gravity compensation
+
+
+
+
     FeedbackConfigs fdb = cfg.Feedback;
     fdb.SensorToMechanismRatio = 1.0;
 
@@ -170,6 +183,15 @@ public class IntakePivot extends SubsystemBase {
 
   public void setIntakeMid(){
     setIntakeSetpoint(0.04);
+  }
+
+
+  public void setSoftPID(){
+    m_mmReq.withSlot(1);
+  }
+
+  public void setQuickPID(){
+    m_mmReq.withSlot(0);
   }
 
 

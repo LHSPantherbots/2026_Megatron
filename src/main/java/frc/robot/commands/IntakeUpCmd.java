@@ -5,32 +5,39 @@ import frc.robot.subsystems.IntakePivot;
 
 public class IntakeUpCmd extends Command {
     IntakePivot intakePivot;
-    boolean shouldEnd = false;
+    boolean finishes = false;
     
 
-    public IntakeUpCmd( IntakePivot intakePivot) {
+    public IntakeUpCmd( IntakePivot intakePivot, boolean finishes) {
         this.intakePivot = intakePivot;
+        this.finishes = finishes;
         addRequirements(intakePivot);
     }
 
     @Override
     public void initialize() {
-      this.intakePivot.setIntakeUp();
+        this.intakePivot.setIntakeUp();
+        this.intakePivot.setQuickPID();
     }
 
     @Override
     public void execute() {
-    this.intakePivot.motionMagicSetPosition();
+        this.intakePivot.motionMagicSetPosition();
     }
 
     @Override
     public void end(boolean interrupted) {
-        this.shouldEnd = false;
+        this.intakePivot.motionMagicSetPosition();
+        this.intakePivot.setQuickPID();
     }
 
     @Override
     public boolean isFinished() {
-        return this.shouldEnd;
+        if (this.finishes) {
+        return this.intakePivot.isAtPosition();
+        } else {
+        return false;
+        }
     }
 
 }

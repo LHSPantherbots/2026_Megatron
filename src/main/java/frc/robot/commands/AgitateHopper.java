@@ -33,6 +33,7 @@ public class AgitateHopper extends Command {
   @Override
   public void initialize() {
     timer = 0;
+    this.intakePivot.setQuickPID();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -78,6 +79,7 @@ public class AgitateHopper extends Command {
     intakeRoller.stop();
     hopper.stop();
     feeder.stop();
+    intakePivot.setSoftPID();
   }
 
   // Returns true when the command should end.

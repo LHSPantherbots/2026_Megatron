@@ -26,6 +26,7 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.IntakeDownCmd;
+import frc.robot.commands.IntakeUpCmd;
 import frc.robot.commands.LauncherHoodAuto;
 import frc.robot.commands.LauncherHoodAutoPersist;
 import frc.robot.commands.LauncherLongCmd;
@@ -277,9 +278,11 @@ public class RobotContainer {
 
 
 
-        m_operatorController.a().onTrue(new InstantCommand(()->intakePivot.setIntakeDown(), intakePivot));
+        //m_operatorController.a().onTrue(new InstantCommand(()->intakePivot.setIntakeDown(), intakePivot));
+        m_operatorController.a().onTrue(new IntakeDownCmd(intakePivot, true));
         m_operatorController.b().onTrue(new InstantCommand(()->intakePivot.setIntakeMid(), intakePivot));
-        m_operatorController.y().onTrue(new InstantCommand(()->intakePivot.setIntakeUp(), intakePivot));
+        //m_operatorController.y().onTrue(new InstantCommand(()->intakePivot.setIntakeUp(), intakePivot));
+        m_operatorController.a().onTrue(new IntakeUpCmd(intakePivot, true));
 
         m_operatorController.rightTrigger().whileTrue(new AgitateHopper(intakeRoller, intakePivot, hopper, feeder));
         

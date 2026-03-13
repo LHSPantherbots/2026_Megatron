@@ -399,10 +399,10 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
 
     values[0] = Math.sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1))); //Distance
 
-    if (x2-x1 > 0)
+    //if (x2-x1 > 0)
         values[1] = Math.atan((y2-y1)/(x2-x1)); //Angle
-    else if (x2-x1 < 0)
-        values[1] = Math.PI; //Angle faces hub when in nutral zone
+    //else if (x2-x1 < 0)
+    //    values[1] = Math.PI; //Angle faces hub when in nutral zone
    
     return values;
   }

@@ -6,13 +6,19 @@ package frc.robot;
 
 import com.ctre.phoenix6.HootAutoReplay;
 
+import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.vision.LimelightPoseSelector;
 
 public class Robot extends TimedRobot {
     private Command m_autonomousCommand;
+    private final LimelightPoseSelector vision = new LimelightPoseSelector();
 
     private final RobotContainer m_robotContainer;
 
@@ -30,6 +36,10 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit(){
         LimelightHelpers.SetFiducialIDFiltersOverride("limelight-front", new int[]{}); // Only track these tag IDs
+        if(DriverStation.getAlliance().get()==Alliance.Red){
+            m_robotContainer.drivetrain.getPigeon2().setYaw(180);
+        }
+    
     }
 
     @Override
@@ -51,11 +61,48 @@ public class Robot extends TimedRobot {
             double omegaRps = Units.radiansToRotations(driveState.Speeds.omegaRadiansPerSecond);
 
             LimelightHelpers.SetRobotOrientation("limelight-rr", headingDeg, 0, 0, 0, 0, 0);
-            var llMeasurement = LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight-rr");
+            LimelightHelpers.SetRobotOrientation("limelight-front", headingDeg, 0, 0, 0, 0, 0);
+
+
+            var llright = LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight-rr");
+            var llfront = LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("limelight-front");
+            var llMeasurement = llright;
+            
+            if (llfront.tagCount>llright.tagCount){
+                llMeasurement = llfront;
+                SmartDashboard.putString("Selected Camera", "Front");
+            } else if(llfront.avgTagDist > llright.avgTagDist){
+                llMeasurement = llfront;
+                SmartDashboard.putString("Selected Camera", "Front");
+            } else {
+                llMeasurement = llright;
+                SmartDashboard.putString("Selected Camera", "Right");
+
+            }
+
+            
+
+
+
+
+            
             if (llMeasurement != null && llMeasurement.tagCount > 0 && Math.abs(omegaRps) < 2.0) {
                 m_robotContainer.drivetrain.addVisionMeasurement(llMeasurement.pose, llMeasurement.timestampSeconds);
+                m_robotContainer.drivetrain.setVisionMeasurementStdDevs(VecBuilder.fill(.7,.7,1000000000));
             }
+
+
+
+
         }
+
+
+
+
+
+
+
+
     }
 
     @Override
@@ -108,4 +155,13 @@ public class Robot extends TimedRobot {
 
     @Override
     public void simulationPeriodic() {}
+
+
+
+
+
+
+
+
+
 }
