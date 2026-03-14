@@ -29,7 +29,7 @@ public class LauncherHoodAuto extends Command {
         double hoodAngle = 0.02*(distance) + 0.77;
         hood.setHoodMode(hoodAngle);
 
-        double launcherSpeed = 5*(distance) + 45;
+        double launcherSpeed = 5*(distance) + (45.0+5.0);
         launcher.setLauncherMode(launcherSpeed);
     }
 

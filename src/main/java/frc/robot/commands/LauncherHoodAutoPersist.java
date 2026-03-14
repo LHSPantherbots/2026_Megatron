@@ -31,14 +31,14 @@ public class LauncherHoodAutoPersist extends Command {
         double hoodAngle = 0.02*(distance) + 0.77;
         hood.setHoodMode(hoodAngle);
 
-        double launcherSpeed = 5*(distance) + 45;
+        double launcherSpeed = 5*(distance) + (45.0 + 5.0);
         launcher.setLauncherMode(launcherSpeed);
         }
         else{
             double hoodAngle = 0.0045*(distance) + 0.8164;
         hood.setHoodMode(hoodAngle);
 
-        double launcherSpeed = 6.18*(distance) + 39.5;
+        double launcherSpeed = 6.18*(distance) + (39.5 + 5.0);
         launcher.setLauncherMode(launcherSpeed);    
         }
     }

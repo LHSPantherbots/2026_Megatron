@@ -282,7 +282,7 @@ public class RobotContainer {
         m_operatorController.a().onTrue(new IntakeDownCmd(intakePivot, true));
         m_operatorController.b().onTrue(new InstantCommand(()->intakePivot.setIntakeMid(), intakePivot));
         //m_operatorController.y().onTrue(new InstantCommand(()->intakePivot.setIntakeUp(), intakePivot));
-        m_operatorController.a().onTrue(new IntakeUpCmd(intakePivot, true));
+        m_operatorController.y().onTrue(new IntakeUpCmd(intakePivot, true));
 
         m_operatorController.rightTrigger().whileTrue(new AgitateHopper(intakeRoller, intakePivot, hopper, feeder));
         

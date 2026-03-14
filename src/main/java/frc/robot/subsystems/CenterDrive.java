@@ -25,7 +25,7 @@ public class CenterDrive extends SubsystemBase {
     TalonFXConfiguration cfg = new TalonFXConfiguration();
 
     cfg.CurrentLimits.StatorCurrentLimitEnable = true;
-    cfg.CurrentLimits.StatorCurrentLimit = 60; //Output Current Limit
+    cfg.CurrentLimits.StatorCurrentLimit = 40; //Output Current Limit
    
     cfg.MotionMagic.MotionMagicCruiseVelocity = 50; // 5 rotations per second
     cfg.MotionMagic.MotionMagicAcceleration = 100; // Take approximately 0.5 seconds to reach max vel

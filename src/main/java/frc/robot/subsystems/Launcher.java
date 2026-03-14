@@ -23,9 +23,9 @@ public class Launcher extends SubsystemBase {
 
   private double launcherSetpoint = 0;
 
-  private double shortSetpoint = 50;
-  private double midSetpoint = 55;
-  private double longSetpoint = 60;
+  private double shortSetpoint = 55;
+  private double midSetpoint = 60;
+  private double longSetpoint = 65;
   private double extraLongSetpoint = 75; //5.2 meters
   private double alloableError = 10;
 
