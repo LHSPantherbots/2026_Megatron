@@ -140,6 +140,7 @@ public class IntakePivot extends SubsystemBase {
     SmartDashboard.putNumber("Intake Pivot Stator Current",intakePivot.getStatorCurrent().getValueAsDouble());
     SmartDashboard.putNumber("Intake Pivot Motor Voltage", intakePivot.getMotorVoltage().getValueAsDouble());
     SmartDashboard.putNumber("Intake Pivot Supply Voltage", intakePivot.getSupplyVoltage().getValueAsDouble());
+    SmartDashboard.putBoolean("Intake At Position", isAtPosition());
   
   }
 

@@ -184,4 +184,12 @@ public class Hood extends SubsystemBase {
       setHoodSetpoint(hoodAngle);
     }
 
+  public double getHoodMax(){
+    return hoodMax;
+  }
+
+  public double getHoodMin(){
+    return hoodMin;
+  }
+
 }

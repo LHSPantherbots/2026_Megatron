@@ -132,10 +132,10 @@ public class RobotContainer {
         //Right stick y drives centerdrive
         // has a deadband to keep it from moving with stick drift
 
-        //Noah Right stick
+        //Noah Right stick with deadband
         centerDrive.setDefaultCommand(
             new RunCommand(
-                ()->centerDrive.manualDrive(-m_driverController.getRightY()), centerDrive )
+                ()->centerDrive.manualDrive(MathUtil.applyDeadband(-m_driverController.getRightY(), .2)), centerDrive )
         );
 
         leds.setDefaultCommand(new RunCommand(()->leds.rainbow(), leds));
@@ -232,7 +232,8 @@ public class RobotContainer {
         .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1])))
       );
 
-      m_driverController.x().whileTrue(new LauncherHoodAuto(launcher, hood, drivetrain));
+      m_driverController.x().whileTrue(new LauncherHoodAuto(launcher, hood, leds, drivetrain));
+      m_driverController.x().onFalse(new RunCommand(()->leds.rainbow(), leds));
       m_driverController.povDown().onTrue(new InstantCommand(()-> drivetrain.setposefromlimelight(),drivetrain));
       
           //slow mode for better control when the right bumper is held, reduces max speed and max angular rate to 25% of their normal values
