@@ -97,16 +97,16 @@ public class RobotContainer {
         NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(6.5));
         NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true));
         NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
-        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(5.0));
+        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(4.0));
         NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true));
-        NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(1));
+        NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(.8));
         NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(8));
         NamedCommands.registerCommand("SetPose", new InstantCommand(()-> drivetrain.setposefromlimelightFront(),drivetrain));
         NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
         NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(3.5));
 
 
-        autoChooser = AutoBuilder.buildAutoChooser("Tests");
+        autoChooser = AutoBuilder.buildAutoChooser("2 Meter Stationary (works)");
         SmartDashboard.putData("Auto Mode", autoChooser);
 
         configureBindings();

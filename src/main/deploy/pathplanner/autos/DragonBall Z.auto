@@ -44,8 +44,20 @@
                 "data": {
                   "name": "AutoLauncher"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "CenterDrive"
+                }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
           }
         },
         {
@@ -81,6 +93,18 @@
                 "data": {
                   "name": "ShortIntake"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "CenterDrive"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
               }
             ]
           }
@@ -100,8 +124,20 @@
                 "data": {
                   "name": "AutoLauncher"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "CenterDrive"
+                }
               }
             ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
           }
         },
         {

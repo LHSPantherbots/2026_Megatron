@@ -67,11 +67,23 @@ public class LauncherHoodAuto extends Command {
         double distance = values[0];
         SmartDashboard.putNumber("Distance", distance);
 
-        double hoodAngle = MathUtil.clamp(0.02*(distance) + 0.77, hood.getHoodMin(), hood.getHoodMax());
+      if (distance<3){
+
+        
+        double hoodAngle = 0.02*(distance) + 0.77;
         hood.setHoodMode(hoodAngle);
 
-        double launcherSpeed = 5*(distance) + (45.0);
+        double launcherSpeed = 5*(distance) + (45.0 );
         launcher.setLauncherMode(launcherSpeed);
+        }
+        else{
+            double hoodAngle = 0.0045*(distance) + 0.8164;
+        hood.setHoodMode(hoodAngle);
+
+        double launcherSpeed = 6.18*(distance) + (39.5 );
+        launcher.setLauncherMode(launcherSpeed);    
+        }
+        
     }
 
 
