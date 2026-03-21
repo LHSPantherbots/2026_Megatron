@@ -16,7 +16,7 @@ public class LauncherHoodAuto extends Command {
     Leds leds;
     CommandSwerveDrivetrain drivetrain;
     boolean shouldEnd = false;
-    LedStatus ledStatus = LedStatus.NONE;
+    LedStatus ledStatus = LedStatus.FRONT_LOCK;
     
     public LauncherHoodAuto(
             Launcher launcher, Hood hood, Leds leds, CommandSwerveDrivetrain drivetrain) {
@@ -30,31 +30,12 @@ public class LauncherHoodAuto extends Command {
     
     @Override
     public void initialize() {
-        
-        if (LimelightHelpers.getTV("limelight-front")) {
-            drivetrain.setposefromlimelightFront();
-            ledStatus = LedStatus.FRONT_LOCK;  
-        } else if(LimelightHelpers.getTV("limelight-rr")){
-            drivetrain.setposefromlimelight();
-            ledStatus = LedStatus.REAR_LOCK;
-        }else{
-            ledStatus = LedStatus.NONE;
-        }
-
-
-        double[] values = drivetrain.getLengthAndAngleFromHub();
-        double distance = values[0];
-        SmartDashboard.putNumber("Distance", distance);
-
-        double hoodAngle = MathUtil.clamp(0.02*(distance) + 0.77, hood.getHoodMin(), hood.getHoodMax());
-        hood.setHoodMode(hoodAngle);
-
-        double launcherSpeed = 5*(distance) + (45.0+5.0);
-        launcher.setLauncherMode(launcherSpeed);
+        calcHoodAndLauncherSetpoint();
     }
 
     @Override
     public void execute() {
+        calcHoodAndLauncherSetpoint();
         this.hood.closedLoopHood();
         this.launcher.closedLoopVelocityLaunchVoltage();
         
@@ -67,6 +48,8 @@ public class LauncherHoodAuto extends Command {
         
     }
 
+    
+
     @Override
     public void end(boolean interrupted) {
       this.hood.setHoodShort();
@@ -76,6 +59,19 @@ public class LauncherHoodAuto extends Command {
     @Override
     public boolean isFinished() {
         return false;
+    }
+
+    public void calcHoodAndLauncherSetpoint(){
+
+    double[] values = drivetrain.getLengthAndAngleFromHub();
+        double distance = values[0];
+        SmartDashboard.putNumber("Distance", distance);
+
+        double hoodAngle = MathUtil.clamp(0.02*(distance) + 0.77, hood.getHoodMin(), hood.getHoodMax());
+        hood.setHoodMode(hoodAngle);
+
+        double launcherSpeed = 5*(distance) + (45.0);
+        launcher.setLauncherMode(launcherSpeed);
     }
 
 

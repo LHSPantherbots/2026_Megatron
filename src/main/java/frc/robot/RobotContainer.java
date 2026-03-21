@@ -65,7 +65,7 @@ public class RobotContainer {
             .withDeadband(MaxSpeed * 0.05)
             .withDriveRequestType(DriveRequestType.OpenLoopVoltage)
             .withHeadingPID(16.0,0,0)
-            .withTargetRateFeedforward(0.0).withMaxAbsRotationalRate(MaxAngularRate*.5);
+            .withTargetRateFeedforward(0.0).withMaxAbsRotationalRate(MaxAngularRate);
 
     private final Telemetry logger = new Telemetry(MaxSpeed);
 
@@ -97,10 +97,10 @@ public class RobotContainer {
         NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(6.5));
         NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true));
         NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
-        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(10.0));
+        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(5.0));
         NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true));
         NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(1));
-        NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(10));
+        NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(8));
         NamedCommands.registerCommand("SetPose", new InstantCommand(()-> drivetrain.setposefromlimelightFront(),drivetrain));
         NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
         NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(3.5));
@@ -132,7 +132,7 @@ public class RobotContainer {
         //Right stick y drives centerdrive
         // has a deadband to keep it from moving with stick drift
 
-        //Noah Right stick with deadband
+        //Right stick with deadband
         centerDrive.setDefaultCommand(
             new RunCommand(
                 ()->centerDrive.manualDrive(MathUtil.applyDeadband(-m_driverController.getRightY(), .2)), centerDrive )
@@ -241,7 +241,10 @@ public class RobotContainer {
           drive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) // Drive forward with negative Y (forward)
          .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) // Drive left with negative X (left)
           .withRotationalRate((m_driverController.getLeftTriggerAxis()-m_driverController.getRightTriggerAxis()) * MaxAngularRate * .25)));  
-      
+
+          m_driverController.rightBumper().onTrue(new RunCommand(()->leds.white(), leds));
+          m_driverController.rightBumper().onFalse(new RunCommand(()->leds.rainbow(), leds));
+
       
       //=================   OPERATOR CONTROLLER ===============================
       m_operatorController.x().whileTrue( 

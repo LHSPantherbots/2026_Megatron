@@ -186,6 +186,9 @@ public class IntakePivot extends SubsystemBase {
     setIntakeSetpoint(0.04);
   }
 
+public void setIntakeLowerMid(){
+    setIntakeSetpoint(0.115);
+  }
 
   public void setSoftPID(){
     m_mmReq.withSlot(1);

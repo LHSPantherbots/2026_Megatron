@@ -18,7 +18,7 @@ public class AgitateHopper extends Command {
   Feeder feeder;
   Hopper hopper;
   Integer timer;
-  Integer delay = 50;
+  Integer delay = 25;
   /** Creates a new AgitateHopper. */
   public AgitateHopper(IntakeRoller intakeRoller, IntakePivot intakePivot, Hopper hopper, Feeder feeder) {
     // Use addRequirements() here to declare subsystem dependencies.
@@ -46,15 +46,27 @@ public class AgitateHopper extends Command {
     intakePivot.motionMagicSetPosition();
     Integer adjustedVal = timer/delay;
 
-    if(timer > 50){ // was 85 if statement to delay the pivot movement so that the agitator can start moving first and not get stuck
+    /*if(timer > 25){ // was 85 if statement to delay the pivot movement so that the agitator can start moving first and not get stuck
         if (adjustedVal % 2 == 0){
           System.out.println("mid");
           intakePivot.setIntakeMid();
         }else{
           System.out.println("down");
-          intakePivot.setIntakeDown();;
+          intakePivot.setIntakeDown();
         }
+      }*/
+      
+      if (timer == 25){
+        intakePivot.setIntakeUp();
       }
+        if (adjustedVal % 2 == 0){
+          System.out.println("lowermid");
+          intakePivot.setIntakeLowerMid();
+        }else{
+          System.out.println("Up");
+          intakePivot.setIntakeUp();
+        }
+      
     
     // System.out.println("timer:" + timer);
     // System.out.println("adjustedVal" + adjustedVal);

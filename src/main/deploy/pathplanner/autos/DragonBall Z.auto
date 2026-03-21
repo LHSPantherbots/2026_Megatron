@@ -5,25 +5,19 @@
     "data": {
       "commands": [
         {
-          "type": "named",
-          "data": {
-            "name": "IntakeDownCmdSafe"
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "Bottom start heading fuel"
-          }
-        },
-        {
           "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "bottom nom nom"
+                  "pathName": "New Path"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
                 }
               },
               {
@@ -48,16 +42,10 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "CenterDrive"
+                  "name": "AutoLauncher"
                 }
               }
             ]
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "SetPose"
           }
         },
         {
@@ -69,7 +57,57 @@
         {
           "type": "named",
           "data": {
-            "name": "AutoLauncher"
+            "name": "Agitate"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "New New New Path"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "New New New New New Path"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoAimDive"
           }
         },
         {
