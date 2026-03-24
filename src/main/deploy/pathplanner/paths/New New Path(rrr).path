@@ -3,51 +3,55 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.6360057061340925,
-        "y": 3.782696148359487
+        "x": 7.7535444444444455,
+        "y": 4.814555555555555
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.537436316916595,
-        "y": 2.2525962212200605
+        "x": 7.032455555555556,
+        "y": 4.960722222222222
       },
       "isLocked": false,
-      "linkedName": "Safe Right Nom Nom"
+      "linkedName": "Left Nom Nom(rrr)"
     },
     {
       "anchor": {
-        "x": 5.630513552068472,
-        "y": 0.71623395149786
+        "x": 5.960566666666666,
+        "y": 5.568231098430813
       },
       "prevControl": {
-        "x": 6.5163656754393315,
-        "y": 0.9020927964478908
+        "x": 6.876544444444445,
+        "y": 5.584366666666666
       },
       "nextControl": {
-        "x": 4.339428685174147,
-        "y": 0.4453540430314833
+        "x": 5.7106054466488985,
+        "y": 5.5638278624356134
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.9263338088445074,
-        "y": 0.9232524964336677
+        "x": 2.579244444444445,
+        "y": 5.759766666666667
       },
       "prevControl": {
-        "x": 3.46008311626459,
-        "y": 0.8004818089417427
+        "x": 3.3563276819472545,
+        "y": 5.74304177780476
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Right Safe Launch"
+      "linkedName": "Left Bump(rrr)"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 1.3560767590618357,
-      "rotationDegrees": -178.21858502678558
+      "waypointRelativePos": 1.352697095435687,
+      "rotationDegrees": -24.24572448605055
+    },
+    {
+      "waypointRelativePos": 1.568464730290455,
+      "rotationDegrees": -34.2109187413932
     }
   ],
   "constraintZones": [],
@@ -63,13 +67,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 62.65012421993012
+    "rotation": -45.894133887485026
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
-    "velocity": 2.5,
-    "rotation": 125.53767779197428
+    "velocity": 2.0,
+    "rotation": -113.90408326710129
   },
   "useDefaultConstraints": true
 }

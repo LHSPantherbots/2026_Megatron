@@ -3,57 +3,61 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 4.414279600570612,
-        "y": 0.6515406562054205
+        "x": 2.988511111111111,
+        "y": 4.434522222222222
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.242353780313837,
-        "y": 0.5092154065620549
+        "x": 3.3295666666666666,
+        "y": 5.106888888888888
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "Left Launch Zone"
     },
     {
       "anchor": {
-        "x": 7.416048502139798,
-        "y": 1.2079029957203988
+        "x": 4.528133333333334,
+        "y": 5.2920333333333325
       },
       "prevControl": {
-        "x": 6.9502567760342355,
-        "y": 0.7809272467902983
+        "x": 3.6220582663884464,
+        "y": 5.308969315893048
       },
       "nextControl": {
-        "x": 7.843549907291917,
-        "y": 1.5997792837765086
+        "x": 5.570788888888888,
+        "y": 5.272544444444446
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "left mid bump"
     },
     {
       "anchor": {
-        "x": 7.6360057061340925,
-        "y": 3.782696148359487
+        "x": 6.106733333333333,
+        "y": 4.034999999999999
       },
       "prevControl": {
-        "x": 7.881840228245363,
-        "y": 2.4111982881597713
+        "x": 6.155455555555555,
+        "y": 5.477177777777777
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Safe Right Nom Nom"
+      "linkedName": "left intake spot 2"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 1.3049040511727044,
-      "rotationDegrees": 113.11647656405465
+      "waypointRelativePos": 0.7095435684647289,
+      "rotationDegrees": -90.12587302575824
+    },
+    {
+      "waypointRelativePos": 1.2431535269709555,
+      "rotationDegrees": -89.62718418380157
     }
   ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.9507089804186325,
+      "minWaypointRelativePos": 1.2208436724565765,
       "maxWaypointRelativePos": 2.0,
       "constraints": {
         "maxVelocity": 2.5,
@@ -77,13 +81,13 @@
   },
   "goalEndState": {
     "velocity": 2.5,
-    "rotation": 125.53767779197428
+    "rotation": -90.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 178.8065105760179
+    "rotation": -8.130102354156005
   },
   "useDefaultConstraints": true
 }

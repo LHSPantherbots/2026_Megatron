@@ -36,7 +36,7 @@ public class IntakePivot extends SubsystemBase {
 
   private final double intakeGearRatio = 72.0/20.0 * 5.0 * 4.0;
 
-  private double intakePivotDownLimit = .172; //-.147;///Update before use
+  private double intakePivotDownLimit = .177; //-.147;///Update before use
   private double intakePivotUpLimit = .004;
 
 

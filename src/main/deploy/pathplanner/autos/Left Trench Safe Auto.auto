@@ -1,0 +1,37 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Safe Left New Path"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Safe Left New New Path"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Safe Left New New New Path"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Safe Left New New New New Path"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

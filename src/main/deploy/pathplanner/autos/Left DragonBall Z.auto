@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "New Path"
+                  "pathName": "New Path(rrr)"
                 }
               },
               {
@@ -36,7 +36,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "New New Path"
+                  "pathName": "New New Path(rrr)"
                 }
               },
               {
@@ -48,7 +48,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "CenterDrive"
+                  "name": "-CenterDrive"
                 }
               }
             ]
@@ -61,15 +61,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "AutoAimDive"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Agitate"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Agitate"
+                }
+              }
+            ]
           }
         },
         {
@@ -85,7 +92,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "New New New Path"
+                  "pathName": "New New New Path(rrr)"
                 }
               },
               {
@@ -116,7 +123,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "New New New New New Path"
+                  "pathName": "New New New New New Path(rrr)"
                 }
               },
               {
