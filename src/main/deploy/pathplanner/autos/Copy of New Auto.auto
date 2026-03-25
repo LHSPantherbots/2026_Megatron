@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "New Path"
+                  "pathName": "Safe Left New Path"
                 }
               },
               {
@@ -32,7 +32,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "New New Path"
+            "pathName": "Safe Left New New Path"
           }
         },
         {
@@ -85,7 +85,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "New New New Path"
+                  "pathName": "Safe Left New New New Path"
                 }
               },
               {
@@ -100,7 +100,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "New New New New Path"
+            "pathName": "Safe Left New New New New Path"
           }
         },
         {
