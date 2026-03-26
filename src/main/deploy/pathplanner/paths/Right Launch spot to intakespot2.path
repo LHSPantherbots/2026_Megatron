@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.118866666666667,
-        "y": 1.959433333333334
+        "x": 4.070144444444445,
+        "y": 1.9496888888888884
       },
       "isLocked": false,
       "linkedName": "Launch spot"
     },
     {
       "anchor": {
-        "x": 6.058011111111111,
-        "y": 4.181166666666666
+        "x": 6.905777777777778,
+        "y": 4.103211111111111
       },
       "prevControl": {
-        "x": 6.350344444444445,
-        "y": 2.1835555555555546
+        "x": 7.198111111111111,
+        "y": 2.1056
       },
       "nextControl": null,
       "isLocked": false,
@@ -31,11 +31,11 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.4157676348547689,
-      "rotationDegrees": 89.79812346135824
+      "rotationDegrees": -0.6574943024162327
     },
     {
       "waypointRelativePos": 0.5751037344398335,
-      "rotationDegrees": 89.5955336682934
+      "rotationDegrees": 0.3422310555279524
     }
   ],
   "constraintZones": [
@@ -54,11 +54,11 @@
     },
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.2997974341661051,
-      "maxWaypointRelativePos": 0.613099257258608,
+      "minWaypointRelativePos": 0.20942928039702996,
+      "maxWaypointRelativePos": 0.5290322580645186,
       "constraints": {
-        "maxVelocity": 3.6,
-        "maxAcceleration": 4.0,
+        "maxVelocity": 2.5,
+        "maxAcceleration": 3.0,
         "maxAngularVelocity": 360.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,

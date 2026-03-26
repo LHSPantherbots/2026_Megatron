@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 6.058011111111111,
-        "y": 4.181166666666666
+        "x": 6.905777777777778,
+        "y": 4.103211111111111
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.019033333333335,
-        "y": 2.3492111111111114
+        "x": 6.866800000000001,
+        "y": 2.2712555555555567
       },
       "isLocked": false,
       "linkedName": "Right intake spot 2"
@@ -31,14 +31,28 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0.4705394190871378,
-      "rotationDegrees": 91.81830296445179
+      "rotationDegrees": -1.1320493931439908
     },
     {
       "waypointRelativePos": 0.7311203319502054,
-      "rotationDegrees": 89.22403237321102
+      "rotationDegrees": -1.5774067008389898
     }
   ],
-  "constraintZones": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.47146401985111774,
+      "maxWaypointRelativePos": 0.7712158808933018,
+      "constraints": {
+        "maxVelocity": 2.5,
+        "maxAcceleration": 3.0,
+        "maxAngularVelocity": 360.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
   "pointTowardsZones": [],
   "eventMarkers": [],
   "globalConstraints": {
