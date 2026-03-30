@@ -40,7 +40,7 @@ public class AgitateHopper extends Command {
   @Override
   public void execute() {
     timer = timer + 1;
-    intakeRoller.intake();;
+    intakeRoller.intake();
     hopper.forward();
     feeder.forward();
     intakePivot.motionMagicSetPosition();

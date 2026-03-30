@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 6.2821333333333325,
-        "y": 3.460077777777777
+        "x": 6.663685152057245,
+        "y": 3.751055456171735
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.983733333333333,
-        "y": 5.594111111111111
+        "x": 7.365285152057246,
+        "y": 5.885088789505069
       },
       "isLocked": false,
       "linkedName": "left intake spot 2"
@@ -51,7 +51,7 @@
     },
     {
       "waypointRelativePos": 1.0107883817427394,
-      "rotationDegrees": 1.7218469425873066
+      "rotationDegrees": 1.7218469425873069
     }
   ],
   "constraintZones": [

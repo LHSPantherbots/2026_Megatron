@@ -23,10 +23,10 @@ public class Launcher extends SubsystemBase {
 
   private double launcherSetpoint = 0;
 
-  private double shortSetpoint = 50;
-  private double midSetpoint = 55;
-  private double longSetpoint = 60;
-  private double extraLongSetpoint = 70; //5.2 meters
+  private double shortSetpoint = 53;//50
+  private double midSetpoint = 58;//55
+  private double longSetpoint = 63;//60
+  private double extraLongSetpoint = 73; //5.2 meters 70
   private double alloableError = 10;
 
   private final VelocityVoltage m_velocityVoltage = new VelocityVoltage(0).withSlot(0);
