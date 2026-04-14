@@ -57,11 +57,11 @@ public class Hopper extends SubsystemBase {
 
 
   public void forward(){
-    manualDrive(-.4);
+    manualDrive(-.45);
   }
 
   public void reverse(){
-    manualDrive(.4);
+    manualDrive(.45);
   }
 
   public void stop(){

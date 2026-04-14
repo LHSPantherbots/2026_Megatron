@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.6084777777777775,
-        "y": 5.711044444444444
+        "x": 2.686433333333334,
+        "y": 5.369988888888888
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.3393111111111113,
-        "y": 5.68181111111111
+        "x": 3.1834,
+        "y": 5.584366666666666
       },
       "isLocked": false,
       "linkedName": "Left Launch Zone"
     },
     {
       "anchor": {
-        "x": 6.663685152057245,
-        "y": 3.751055456171735
+        "x": 5.92158888888889,
+        "y": 3.937555555555555
       },
       "prevControl": {
-        "x": 7.082696263168357,
-        "y": 6.567199900616179
+        "x": 6.1067333333333345,
+        "y": 6.802422222222221
       },
       "nextControl": null,
       "isLocked": false,
@@ -30,11 +30,11 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.35,
+      "waypointRelativePos": 0.4058091286307047,
       "rotationDegrees": -2.2603098392020207
     },
     {
-      "waypointRelativePos": 0.518433179723502,
+      "waypointRelativePos": 0.6282157676348493,
       "rotationDegrees": -2.2620397259503546
     }
   ],
@@ -54,10 +54,10 @@
     },
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.25,
-      "maxWaypointRelativePos": 0.6,
+      "minWaypointRelativePos": 0.30471464019850764,
+      "maxWaypointRelativePos": 0.7612903225806428,
       "constraints": {
-        "maxVelocity": 2.2,
+        "maxVelocity": 2.15,
         "maxAcceleration": 2.5,
         "maxAngularVelocity": 360.0,
         "maxAngularAcceleration": 720.0,

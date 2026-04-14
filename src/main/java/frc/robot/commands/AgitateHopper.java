@@ -60,10 +60,10 @@ public class AgitateHopper extends Command {
         intakePivot.setIntakeUp();
       }
         if (adjustedVal % 2 == 0){
-          System.out.println("lowermid");
+          System.out.println("mid");
           intakePivot.setIntakeLowerMid();
         }else{
-          System.out.println("Up");
+          System.out.println("lowermid");
           intakePivot.setIntakeUp();
         }
       

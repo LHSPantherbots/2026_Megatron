@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 6.905777777777778,
-        "y": 4.103211111111111
+        "x": 5.950822222222223,
+        "y": 4.151933333333333
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.866800000000001,
-        "y": 2.2712555555555567
+        "x": 5.502577777777777,
+        "y": 2.534355555555554
       },
       "isLocked": false,
       "linkedName": "Right intake spot 2"
     },
     {
       "anchor": {
-        "x": 2.014066666666667,
-        "y": 2.4174222222222226
+        "x": 2.7741333333333333,
+        "y": 2.5830777777777767
       },
       "prevControl": {
-        "x": 5.093311111111113,
-        "y": 1.9399444444444454
+        "x": 4.654811111111112,
+        "y": 2.2712555555555536
       },
       "nextControl": null,
       "isLocked": false,
@@ -30,11 +30,11 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.4705394190871378,
+      "waypointRelativePos": 0.5452282157676347,
       "rotationDegrees": -1.1320493931439908
     },
     {
-      "waypointRelativePos": 0.7311203319502054,
+      "waypointRelativePos": 0.6746887966805027,
       "rotationDegrees": -1.5774067008389898
     }
   ],
@@ -65,13 +65,13 @@
   },
   "goalEndState": {
     "velocity": 0.0,
-    "rotation": 36.869897645844006
+    "rotation": 44.11859600341787
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
-    "velocity": 2.2,
-    "rotation": 91.75340486007153
+    "velocity": 0.0,
+    "rotation": 90.0
   },
   "useDefaultConstraints": true
 }
