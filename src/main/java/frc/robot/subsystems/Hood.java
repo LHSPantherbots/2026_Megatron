@@ -45,8 +45,8 @@ public class Hood extends SubsystemBase {
   private double allowableError = 0.02;
   //hood encoder is zeored when unhooked from the actuators and hood is lifted 
   //vertically until it hits hard stop of the encoder mount
-  private double hoodMin = .79; // value read all the way down
-  private double hoodMax = .86; // value read all the ay at actuator limits
+  private double hoodMin = .79; //// .79 .19  value read all the way down
+  private double hoodMax = .86; // .86 .31 value read all the ay at actuator limits
   private double hoodSetpoint = hoodMin; //-pivot_zero_offset
   
   //Hood Position Setpoints
@@ -124,7 +124,9 @@ public class Hood extends SubsystemBase {
 
       SmartDashboard.putNumber("Hood Left Output", hoodLeft.getAppliedOutput());
       SmartDashboard.putNumber("Hood Setpoint", hoodSetpoint);
-      SmartDashboard.putNumber("Hood Pos", e_hoodEncoder.getPosition());
+      SmartDashboard.putNumber("Hood Pos og", e_hoodEncoder.getPosition());
+      
+  
   
   }
 
@@ -164,7 +166,9 @@ public class Hood extends SubsystemBase {
         return (Math.abs(error) < allowableError);
       }
 
-  public void setHoodShort(){ //front of the hub 1meter- hood angle: 0.79  Launcher speed: 50
+  
+  
+      public void setHoodShort(){ //front of the hub 1meter- hood angle: 0.79  Launcher speed: 50
     setHoodSetpoint(shortSetpoint);
   }
 

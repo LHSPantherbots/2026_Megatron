@@ -32,6 +32,7 @@ import frc.robot.commands.LauncherHoodAutoPersist;
 import frc.robot.commands.LauncherLongCmd;
 import frc.robot.commands.LauncherMidCmd;
 import frc.robot.commands.LauncherStopCmd;
+import frc.robot.commands.RunLauncherCmd;
 import frc.robot.commands.SetPoseBestLimelightCMD;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CenterDrive;
@@ -107,6 +108,7 @@ public class RobotContainer {
         NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
         NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(3));
         NamedCommands.registerCommand("-CenterDrive",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive ).withTimeout(3));
+        NamedCommands.registerCommand("RunLauncherMidSimple",  new RunLauncherCmd(launcher, leds, true).withTimeout(5.0));;
 
 
 
@@ -248,6 +250,7 @@ public class RobotContainer {
 
           m_driverController.rightBumper().onTrue(new RunCommand(()->leds.white(), leds));
           m_driverController.rightBumper().onFalse(new RunCommand(()->leds.rainbow(), leds));
+    
 
       
       //=================   OPERATOR CONTROLLER ===============================
@@ -295,6 +298,7 @@ public class RobotContainer {
         m_operatorController.rightTrigger().whileTrue(new AgitateHopper(intakeRoller, intakePivot, hopper, feeder));
         
 
+          m_operatorController.leftBumper().whileTrue(new RunCommand(()->climb.manualDrive(m_operatorController.getLeftY()), climb));
 
 
         drivetrain.registerTelemetry(logger::telemeterize);

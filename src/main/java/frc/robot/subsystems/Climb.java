@@ -32,7 +32,7 @@ public class Climb extends SubsystemBase{
 
         c_Climb
                 .idleMode(IdleMode.kBrake)
-                .smartCurrentLimit(60)
+                .smartCurrentLimit(90)
                 
                 .inverted(false);
         c_Climb.softLimit
