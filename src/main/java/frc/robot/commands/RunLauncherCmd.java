@@ -4,7 +4,6 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.Leds;
-
 public class RunLauncherCmd extends Command {
     Launcher launcher;
     Leds leds;
