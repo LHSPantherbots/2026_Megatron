@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.7251878354203931,
+        "y": 7.336869409660108
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.4391055456171733,
+        "y": 7.35309481216458
+      },
+      "isLocked": false,
+      "linkedName": "Archcaladon"
+    },
+    {
+      "anchor": {
+        "x": 1.7473881932021467,
+        "y": 6.1848658318425755
+      },
+      "prevControl": {
+        "x": 2.0069946332737025,
+        "y": 6.590500894454383
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Go go gaget"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 4.0,
+    "maxAcceleration": 4.0,
+    "maxAngularVelocity": 360.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -36.02737338510368
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 178.26429541107157
+  },
+  "useDefaultConstraints": true
+}
