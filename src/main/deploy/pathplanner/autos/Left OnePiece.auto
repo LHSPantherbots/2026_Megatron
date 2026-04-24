@@ -1,0 +1,224 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Left Start to Neutral Zone"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Left Neutral Zone to Launch Zone"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "-CenterDrive"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Agitate"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Left launch to inatek spot 2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "CenterDrive"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Haikyu"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "-CenterDrive"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Agitate"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Left launch to inatek spot 2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "CenterDrive"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}
