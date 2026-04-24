@@ -8,24 +8,24 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 5.785352536704526,
-        "y": 0.8283597491410992
+        "x": 4.622498936009118,
+        "y": 0.959086455222054
       },
       "isLocked": false,
       "linkedName": "Right Start point"
     },
     {
       "anchor": {
-        "x": 7.7535444444444455,
-        "y": 1.6093023255813943
+        "x": 7.610128388017117,
+        "y": 0.819272727272728
       },
       "prevControl": {
-        "x": 7.7237386363636364,
-        "y": 0.7368181818181825
+        "x": 6.987092353584934,
+        "y": 0.3533862704539741
       },
       "nextControl": {
-        "x": 7.788055431908369,
-        "y": 2.619517826743095
+        "x": 8.424283834620736,
+        "y": 1.4280721792394782
       },
       "isLocked": false,
       "linkedName": null
@@ -36,8 +36,8 @@
         "y": 3.7426666666666666
       },
       "prevControl": {
-        "x": 7.767012522361359,
-        "y": 2.9722361359570666
+        "x": 7.713645739922417,
+        "y": 2.6907387193867534
       },
       "nextControl": null,
       "isLocked": false,
@@ -46,22 +46,22 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.18755186721992084,
-      "rotationDegrees": 179.66235963815606
+      "waypointRelativePos": 0.2601279317697231,
+      "rotationDegrees": 179.9682093049388
     },
     {
-      "waypointRelativePos": 1.0970954356846478,
-      "rotationDegrees": 95.59603697744916
+      "waypointRelativePos": 1.2366737739871998,
+      "rotationDegrees": 89.24423838553142
     }
   ],
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 1.0382133995037361,
+      "minWaypointRelativePos": 1.3180283592167523,
       "maxWaypointRelativePos": 2.0,
       "constraints": {
-        "maxVelocity": 2.3,
-        "maxAcceleration": 2.1,
+        "maxVelocity": 2.5,
+        "maxAcceleration": 4.0,
         "maxAngularVelocity": 360.0,
         "maxAngularAcceleration": 720.0,
         "nominalVoltage": 12.0,
@@ -80,7 +80,7 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 0.0,
+    "velocity": 0,
     "rotation": 90.0
   },
   "reversed": false,
