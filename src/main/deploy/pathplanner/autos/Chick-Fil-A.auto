@@ -1,0 +1,144 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "center to left depot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "left depot to right depot"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Patrick Parker Cash Carter Bam Hollinger Buchanan"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "corner to left lauch zone"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AutoAimDive"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Agitate"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "IntakeDownCmd"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "launch to climb"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}

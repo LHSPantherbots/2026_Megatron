@@ -9,7 +9,7 @@ import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.SubsystemBase; //comment
 import frc.robot.util.Constants.CanIdConstants;
 
 public class IntakeRoller extends SubsystemBase {
@@ -57,11 +57,11 @@ public class IntakeRoller extends SubsystemBase {
 
 
   public void intake(){
-    manualDrive(-.9);
+    manualDrive(-0.90);
   }
 
   public void reverseIntake(){
-    manualDrive(-.9);
+    manualDrive(-0.90);
   }
 
   public void eject(){

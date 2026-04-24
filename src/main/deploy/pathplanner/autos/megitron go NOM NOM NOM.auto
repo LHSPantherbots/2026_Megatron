@@ -1,0 +1,137 @@
+{
+  "version": "2025.0",
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "dont ever do programming its a trap"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "New Path (hehe just to make people mad)"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Agitate"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ShortIntake"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "life is crazy"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ShortIntake"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SetPose"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "why is life"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Agitate"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "StopLauncher"
+          }
+        }
+      ]
+    }
+  },
+  "resetOdom": true,
+  "folder": null,
+  "choreoAuto": false
+}
