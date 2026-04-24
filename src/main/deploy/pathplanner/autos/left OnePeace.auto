@@ -67,6 +67,12 @@
               {
                 "type": "named",
                 "data": {
+                  "name": "AutoLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
                   "name": "AutoAimDive"
                 }
               },
