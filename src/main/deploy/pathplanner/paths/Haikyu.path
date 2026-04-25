@@ -8,40 +8,40 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 7.548522727272726,
-        "y": 3.158920454545455
+        "x": 6.642659390965274,
+        "y": 4.002366472801816
       },
       "isLocked": false,
       "linkedName": "left intake spot 2"
     },
     {
       "anchor": {
-        "x": 7.188366666666667,
+        "x": 6.983733333333333,
         "y": 5.369988888888888
       },
       "prevControl": {
-        "x": 7.580664867948437,
-        "y": 5.050538616860091
+        "x": 7.335141631011129,
+        "y": 4.741015269476329
       },
       "nextControl": {
-        "x": 6.878579545454545,
-        "y": 5.62225
+        "x": 6.817264245374405,
+        "y": 5.667946180921411
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 5.847897727272726,
-        "y": 5.6840909090909095
+        "x": 5.824144444444445,
+        "y": 5.730533333333333
       },
       "prevControl": {
-        "x": 6.467680456580166,
-        "y": 5.83165822559268
+        "x": 6.250314425381986,
+        "y": 5.841731316671456
       },
       "nextControl": {
-        "x": 5.415011363636362,
-        "y": 5.581022727272728
+        "x": 5.199742650929761,
+        "y": 5.567611909166396
       },
       "isLocked": false,
       "linkedName": null
@@ -52,8 +52,8 @@
         "y": 5.369988888888888
       },
       "prevControl": {
-        "x": 4.508644444444445,
-        "y": 5.564877777777777
+        "x": 6.524220636446565,
+        "y": 5.8224770090331495
       },
       "nextControl": null,
       "isLocked": false,
@@ -62,19 +62,19 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.4207468879668098,
+      "waypointRelativePos": 0.6746887966804958,
       "rotationDegrees": 45.98145774173444
     },
     {
-      "waypointRelativePos": 1.003319502074689,
+      "waypointRelativePos": 1.2224066390041484,
       "rotationDegrees": 88.08178665848338
     },
     {
-      "waypointRelativePos": 2.4821576763485362,
+      "waypointRelativePos": 2.726141078838176,
       "rotationDegrees": 0.0
     },
     {
-      "waypointRelativePos": 2.6315352697095453,
+      "waypointRelativePos": 2.8058091286307065,
       "rotationDegrees": 0.0
     }
   ],
@@ -94,7 +94,14 @@
     }
   ],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "CenterDrive",
+      "waypointRelativePos": 2.575682382133995,
+      "endWaypointRelativePos": 2.8794044665012306,
+      "command": null
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 4.0,
     "maxAcceleration": 4.0,

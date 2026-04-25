@@ -25,6 +25,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
+import frc.robot.commands.AutoAgitateHopper;
 import frc.robot.commands.IntakeDownCmd;
 import frc.robot.commands.IntakeUpCmd;
 import frc.robot.commands.LauncherHoodAuto;
@@ -96,18 +97,20 @@ public class RobotContainer {
 
         NamedCommands.registerCommand("IntakeDownCmd", new IntakeDownCmd(intakePivot, true).withTimeout(2.0));
         NamedCommands.registerCommand("IntakeDownCmdSafe", new IntakeDownCmd(intakePivot, true));
-        NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(6.5));
+        NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(5
+        ));
         NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true));
         NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
-        NamedCommands.registerCommand("Agitate", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(3.3));
+        NamedCommands.registerCommand("Agitate", new AutoAgitateHopper(intakeRoller, intakePivot, hopper, feeder, drivetrain).withTimeout(3.3));
         NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true));
         NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(.8));
         NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(8));
         NamedCommands.registerCommand("SetPose", new SetPoseBestLimelightCMD(drivetrain));
         //NamedCommands.registerCommand("SetPose", new InstantCommand(()-> drivetrain.setposefromlimelightFront(),drivetrain));
         NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
-        NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(3));
-        NamedCommands.registerCommand("-CenterDrive",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive ).withTimeout(3));
+        NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(2));
+        NamedCommands.registerCommand("-CenterDrive",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive ).withTimeout(2
+        ));
         NamedCommands.registerCommand("RunLauncherMidSimple",  new RunLauncherCmd(launcher, leds, true).withTimeout(5.0));;
 
 

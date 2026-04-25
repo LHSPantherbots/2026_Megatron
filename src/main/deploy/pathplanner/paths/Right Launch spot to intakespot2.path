@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.7741333333333333,
-        "y": 2.5830777777777767
+        "x": 2.5500111111111106,
+        "y": 2.553844444444444
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.9629555555555553,
-        "y": 2.651288888888888
+        "x": 3.9337222222222223,
+        "y": 2.5441
       },
       "isLocked": false,
       "linkedName": "Launch spot"
@@ -20,8 +20,8 @@
         "y": 3.3129695885509842
       },
       "prevControl": {
-        "x": 6.249863636363637,
-        "y": 2.0560909090909094
+        "x": 6.262644444444445,
+        "y": 2.855922222222223
       },
       "nextControl": null,
       "isLocked": false,
@@ -54,7 +54,14 @@
     }
   ],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "CenterDrive",
+      "waypointRelativePos": 0.2987593052109195,
+      "endWaypointRelativePos": 0.5687344913151324,
+      "command": null
+    }
+  ],
   "globalConstraints": {
     "maxVelocity": 4.0,
     "maxAcceleration": 4.0,

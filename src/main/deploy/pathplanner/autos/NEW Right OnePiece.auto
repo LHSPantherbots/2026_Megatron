@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Left Start to Neutral Zone"
+                  "pathName": "New Path"
                 }
               },
               {
@@ -23,32 +23,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ShortIntake"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Left Neutral Zone to Launch Zone"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoLauncher"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "-CenterDrive"
+                  "name": "Intake"
                 }
               }
             ]
@@ -64,6 +39,12 @@
           "type": "parallel",
           "data": {
             "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
+                }
+              },
               {
                 "type": "named",
                 "data": {
@@ -92,19 +73,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Left launch to inatek spot 2"
+                  "pathName": "Right Launch spot to intakespot2"
                 }
               },
               {
                 "type": "named",
                 "data": {
                   "name": "ShortIntake"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "CenterDrive"
                 }
               },
               {
@@ -123,25 +98,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Haikyu"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoLauncher"
+                  "pathName": "vinland saga season 2"
                 }
               },
               {
                 "type": "named",
                 "data": {
                   "name": "ShortIntake"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "-CenterDrive"
                 }
               }
             ]
@@ -160,13 +123,13 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "AutoAimDive"
+                  "name": "AutoLauncher"
                 }
               },
               {
                 "type": "named",
                 "data": {
-                  "name": "AutoLauncher"
+                  "name": "AutoAimDive"
                 }
               },
               {
@@ -191,19 +154,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Left launch to inatek spot 2"
+                  "pathName": "Right Launch spot to intakespot2"
                 }
               },
               {
                 "type": "named",
                 "data": {
                   "name": "IntakeDownCmd"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "CenterDrive"
                 }
               },
               {

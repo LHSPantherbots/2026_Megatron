@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Right start line to nuetral zone"
+                  "pathName": "fat Path I like them big I like them chunky"
                 }
               },
               {
@@ -23,32 +23,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "ShortIntake"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Right Neutral zone to launch zone"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoLauncher"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "-CenterDrive"
+                  "name": "Intake"
                 }
               }
             ]
@@ -98,19 +73,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Right Launch spot to intakespot2"
+                  "pathName": "Left launch to inatek spot 2"
                 }
               },
               {
                 "type": "named",
                 "data": {
                   "name": "ShortIntake"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "CenterDrive"
                 }
               },
               {
@@ -129,25 +98,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "vinland saga season 2"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "AutoLauncher"
+                  "pathName": "Haikyu"
                 }
               },
               {
                 "type": "named",
                 "data": {
                   "name": "ShortIntake"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "-CenterDrive"
                 }
               }
             ]
@@ -197,7 +154,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Right Launch spot to intakespot2"
+                  "pathName": "Left launch to inatek spot 2"
                 }
               },
               {
@@ -210,12 +167,6 @@
                 "type": "named",
                 "data": {
                   "name": "ShortIntake"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "CenterDrive"
                 }
               }
             ]

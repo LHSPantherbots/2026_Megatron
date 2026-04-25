@@ -5,6 +5,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
+import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkMax;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,7 +18,7 @@ public class Climb extends SubsystemBase{
      // Initialize elevator SPARK. We will use MAXMotion position control for the elevator, so we also
   // need to initialize the closed loop controller and encoder.
 
-    private  SparkMax m_Climb; 
+    private  SparkFlex m_Climb; 
     private  SparkMaxConfig c_Climb = new SparkMaxConfig();
     private RelativeEncoder c_Encoder;    
     
@@ -26,7 +27,7 @@ public class Climb extends SubsystemBase{
     // setting what moter is set
 
     public Climb() {      
-        m_Climb = new SparkMax(13, MotorType.kBrushless);
+        m_Climb = new SparkFlex(13, MotorType.kBrushless);
         c_Encoder = m_Climb.getEncoder();
 
 

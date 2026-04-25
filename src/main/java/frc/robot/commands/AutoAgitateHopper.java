@@ -1,0 +1,112 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
+package frc.robot.commands;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.IntakePivot;
+import frc.robot.subsystems.IntakeRoller;
+import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.Feeder;
+import frc.robot.subsystems.Hopper;
+
+/* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
+public class AutoAgitateHopper extends Command {
+  IntakeRoller intakeRoller;
+  IntakePivot intakePivot;
+  Feeder feeder;
+  Hopper hopper;
+  Integer timer;
+  Integer delay = 25;
+  CommandSwerveDrivetrain drivetrain;
+
+  /** Creates a new AgitateHopper. */
+  public AutoAgitateHopper(IntakeRoller intakeRoller, IntakePivot intakePivot, Hopper hopper, Feeder feeder,
+      CommandSwerveDrivetrain drivetrain) {
+    // Use addRequirements() here to declare subsystem dependencies.
+    this.intakeRoller = intakeRoller;
+    this.intakePivot = intakePivot;
+    this.feeder = feeder;
+    this.hopper = hopper;
+    this.drivetrain = drivetrain;
+    addRequirements(intakeRoller, intakePivot, hopper, feeder);
+  }
+
+  // Called when the command is initially scheduled.
+  @Override
+  public void initialize() {
+    timer = 0;
+    this.intakePivot.setQuickPID();
+
+  }
+
+  // Called every time the scheduler runs while the command is scheduled.
+  @Override
+  public void execute() {
+    // Re-evaluate alliance/launch permission each scheduler cycle so it can change at runtime
+    if (this.drivetrain.isInAlliZone()) {
+      timer = timer + 1;
+      intakeRoller.intake();
+      hopper.forward();
+      feeder.forward();
+      intakePivot.motionMagicSetPosition();
+      Integer adjustedVal = timer/delay;
+    
+
+    /*if(timer > 25){ // was 85 if statement to delay the pivot movement so that the agitator can start moving first and not get stuck
+        if (adjustedVal % 2 == 0){
+          System.out.println("mid");
+          intakePivot.setIntakeMid();
+        }else{
+          System.out.println("down");
+          intakePivot.setIntakeDown();
+        }
+      }*/
+      
+      if (timer == 25){
+        intakePivot.setIntakeUp();
+      }
+        if (adjustedVal % 2 == 0){
+          System.out.println("mid");
+          intakePivot.setIntakeLowerMid();
+        }else{
+          System.out.println("lowermid");
+          intakePivot.setIntakeUp();
+        }
+      
+    
+    // System.out.println("timer:" + timer);
+    // System.out.println("adjustedVal" + adjustedVal);
+
+    
+    
+    
+    SmartDashboard.putNumber("Timer", timer);
+    SmartDashboard.putNumber("Adjusted Value", adjustedVal );
+      }
+
+
+    
+
+
+  }
+
+  // Called once the command ends or is interrupted.
+  @Override
+  public void end(boolean interrupted) {
+    intakePivot.setIntakeDown();
+    intakeRoller.stop();
+    hopper.stop();
+    feeder.stop();
+    intakePivot.setSoftPID();
+  }
+
+  // Returns true when the command should end.
+  @Override
+  public boolean isFinished() {
+    return false;
+
+  }
+}

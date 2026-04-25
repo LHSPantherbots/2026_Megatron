@@ -8,32 +8,27 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.852088888888889,
-        "y": 4.678133333333332
+        "x": 2.0554797063333794,
+        "y": 4.52360281643942
       },
       "isLocked": false,
       "linkedName": "Left Launch Zone"
     },
     {
       "anchor": {
-        "x": 0.9032,
-        "y": 2.7000111111111096
+        "x": 1.0980888888888891,
+        "y": 4.726855555555556
       },
       "prevControl": {
-        "x": 4.089633333333335,
-        "y": 2.04713333333333
+        "x": 2.3603242212857403,
+        "y": 5.081309056907116
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": null
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.7538461538461465,
-      "rotationDegrees": 0.0
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [
     {
       "name": "Constraints Zone",
@@ -61,7 +56,7 @@
   },
   "goalEndState": {
     "velocity": 2.0,
-    "rotation": 0.0
+    "rotation": 180.0
   },
   "reversed": false,
   "folder": null,
