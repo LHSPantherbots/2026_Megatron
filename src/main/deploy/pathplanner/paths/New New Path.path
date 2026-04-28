@@ -3,37 +3,44 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.770455555555556,
-        "y": 6.383411111111111
+        "x": 1.2442555555555554,
+        "y": 4.921744444444443
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.6448404419341638,
-        "y": 5.86413799474128
+        "x": 1.2442555555555554,
+        "y": 4.671744444444443
       },
       "isLocked": false,
-      "linkedName": "middle launch"
+      "linkedName": "climbReady"
     },
     {
       "anchor": {
         "x": 1.2442555555555554,
-        "y": 4.921744444444443
+        "y": 4.609922222222221
       },
       "prevControl": {
-        "x": 2.424831866752679,
-        "y": 5.64258236612457
+        "x": 1.2442555555555554,
+        "y": 4.859922222222221
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "climbReady"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "pointTowardsZones": [],
-  "eventMarkers": [],
+  "eventMarkers": [
+    {
+      "name": "ClimbuP",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": 1.0,
+      "command": null
+    }
+  ],
   "globalConstraints": {
-    "maxVelocity": 1.0,
+    "maxVelocity": 0.3,
     "maxAcceleration": 4.0,
     "maxAngularVelocity": 360.0,
     "maxAngularAcceleration": 720.0,
@@ -41,14 +48,14 @@
     "unlimited": false
   },
   "goalEndState": {
-    "velocity": 2.0,
+    "velocity": 0,
     "rotation": 180.0
   },
   "reversed": false,
   "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -38.829824904970444
+    "rotation": 180.0
   },
   "useDefaultConstraints": false
 }

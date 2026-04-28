@@ -138,8 +138,26 @@
                 "data": {
                   "pathName": "left launch to climb"
                 }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "ClimbuP"
+                }
               }
             ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "New New Path"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ClimbDown"
           }
         }
       ]

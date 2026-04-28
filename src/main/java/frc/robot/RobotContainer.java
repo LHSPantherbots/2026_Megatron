@@ -26,6 +26,8 @@ import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.AutoAgitateHopper;
+import frc.robot.commands.ClimbDown;
+import frc.robot.commands.ClimbUp;
 import frc.robot.commands.IntakeDownCmd;
 import frc.robot.commands.IntakeUpCmd;
 import frc.robot.commands.LauncherHoodAuto;
@@ -109,9 +111,11 @@ public class RobotContainer {
         //NamedCommands.registerCommand("SetPose", new InstantCommand(()-> drivetrain.setposefromlimelightFront(),drivetrain));
         NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
         NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(2));
-        NamedCommands.registerCommand("-CenterDrive",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive ).withTimeout(2
-        ));
+        NamedCommands.registerCommand("-CenterDrive",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive ).withTimeout(2));
         NamedCommands.registerCommand("RunLauncherMidSimple",  new RunLauncherCmd(launcher, leds, true).withTimeout(5.0));;
+        NamedCommands.registerCommand("ClimbuP", new ClimbUp(climb).withTimeout(1.9));
+        NamedCommands.registerCommand("ClimbDown", new ClimbDown(climb).withTimeout(1.5));
+
 
 
 

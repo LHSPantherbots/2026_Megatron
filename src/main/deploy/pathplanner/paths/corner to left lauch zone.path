@@ -16,16 +16,16 @@
     },
     {
       "anchor": {
-        "x": 2.686433333333334,
-        "y": 5.369988888888888
+        "x": 1.770455555555556,
+        "y": 6.383411111111111
       },
       "prevControl": {
-        "x": 2.472055555555556,
-        "y": 6.100822222222222
+        "x": 1.556077777777778,
+        "y": 7.114244444444445
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Left Launch Zone"
+      "linkedName": "middle launch"
     }
   ],
   "rotationTargets": [],
