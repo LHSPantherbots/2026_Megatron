@@ -137,6 +137,12 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
+      "name": "LEDTest",
+      "waypointRelativePos": 1.0576271186440693,
+      "endWaypointRelativePos": 1.857627118644068,
+      "command": null
+    },
+    {
       "name": "LauncherMid",
       "waypointRelativePos": 2.1400359066427272,
       "endWaypointRelativePos": 4.0,

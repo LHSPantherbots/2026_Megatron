@@ -13,12 +13,14 @@ import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
 import com.pathplanner.lib.commands.FollowPathCommand;
+import com.pathplanner.lib.events.EventTrigger;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -97,8 +99,7 @@ public class RobotContainer {
 
         NamedCommands.registerCommand("IntakeDownCmd", new IntakeDownCmd(intakePivot, true).withTimeout(2.0));
         NamedCommands.registerCommand("IntakeDownCmdSafe", new IntakeDownCmd(intakePivot, true));
-        NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(5
-        ));
+        NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(5));
         NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true).withTimeout(3.0));
         NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
         NamedCommands.registerCommand("Agitate", new AutoAgitateHopper(intakeRoller, intakePivot, hopper, feeder, drivetrain).withTimeout(3.3));
@@ -114,6 +115,9 @@ public class RobotContainer {
         NamedCommands.registerCommand("RunLauncherMidSimple",  new RunLauncherCmd(launcher, leds, true).withTimeout(5.0));;
         NamedCommands.registerCommand("ClimbuP", new ClimbUp(climb).withTimeout(1.9));
         NamedCommands.registerCommand("ClimbDown", new ClimbDown(climb).withTimeout(1.5));
+        NamedCommands.registerCommand("LEDGreen", new RunCommand(()->leds.green(),leds).withTimeout(2.0));
+
+        new EventTrigger("LEDTest").whileTrue(new RunCommand(()->leds.green(),leds).asProxy());
 
 
 
