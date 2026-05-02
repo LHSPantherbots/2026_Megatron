@@ -4,14 +4,15 @@
 
 package frc.robot;
 
-import static edu.wpi.first.units.Units.*;
+import static edu.wpi.first.units.Units.MetersPerSecond;
+import static edu.wpi.first.units.Units.RadiansPerSecond;
+import static edu.wpi.first.units.Units.RotationsPerSecond;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
-
 import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.commands.FollowPathCommand;
 import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.commands.FollowPathCommand;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -23,7 +24,6 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
-import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine.Direction;
 import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.AutoAgitateHopper;
 import frc.robot.commands.ClimbDown;
@@ -39,15 +39,13 @@ import frc.robot.commands.RunLauncherCmd;
 import frc.robot.commands.SetPoseBestLimelightCMD;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CenterDrive;
+import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
 import frc.robot.subsystems.Feeder;
 import frc.robot.subsystems.Hood;
 import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.IntakePivot;
 import frc.robot.subsystems.IntakeRoller;
-import frc.robot.subsystems.IntakePivot;
-
-import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.Launcher;
 import frc.robot.subsystems.Leds;
 
@@ -86,7 +84,7 @@ public class RobotContainer {
 
     private final Hopper hopper = new Hopper();
     private final Feeder feeder = new Feeder();
-    private final Hood hood = new Hood();
+    public final Hood hood = new Hood(); //public so that it can be used in autonomousExit() in Robot.java
     private final Climb climb = new Climb();
     private final Launcher launcher = new Launcher();
     private final Leds leds = new Leds();
@@ -101,9 +99,10 @@ public class RobotContainer {
         NamedCommands.registerCommand("IntakeDownCmdSafe", new IntakeDownCmd(intakePivot, true));
         NamedCommands.registerCommand("Intake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(5
         ));
-        NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true));
+        NamedCommands.registerCommand("LauncherMid", new LauncherMidCmd(launcher, hood, leds, true).withTimeout(3.0));
         NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
         NamedCommands.registerCommand("Agitate", new AutoAgitateHopper(intakeRoller, intakePivot, hopper, feeder, drivetrain).withTimeout(3.3));
+        NamedCommands.registerCommand("Agitate2", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(3.3));
         NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true));
         NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(.8));
         NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(8));

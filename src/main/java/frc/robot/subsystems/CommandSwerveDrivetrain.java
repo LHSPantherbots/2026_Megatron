@@ -307,6 +307,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
         SmartDashboard.putNumber("Gyro Angle", this.getPigeon2().getYaw().getValueAsDouble());
         SmartDashboard.putString("Alliance", alliance.toString());
         SmartDashboard.putBoolean("Is In alliance Zone", isInAlliZone());
+
     
     
     
@@ -387,16 +388,16 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     double y1 = this.getState().Pose.getY();
     double x2 = 0.0;
     double y2 = 0.0;
-    double xvel = this.getState().Speeds.vxMetersPerSecond;
-    double yvel = this.getState().Speeds.vyMetersPerSecond;
+    double x_vel = this.getState().Speeds.vxMetersPerSecond;
+    double y_vel = this.getState().Speeds.vyMetersPerSecond;
 
     if (getAlliance().get()==Alliance.Red){
-      x2 = red_hub_x-xvel;
-      y2 = red_hub_y-yvel;
+      x2 = red_hub_x - x_vel;
+      y2 = red_hub_y - y_vel;
 
     }else{
-      x2 = blue_hub_x-xvel;
-      y2 = blue_hub_y-yvel;
+      x2 = blue_hub_x - x_vel;
+      y2 = blue_hub_y - y_vel;
  
     }
 
@@ -417,29 +418,39 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     return values;
   }
 
+  public boolean isInAlliZone(){
+    double x1 = this.getState().Pose.getX();
+    boolean isInAlliZone = false;
+    
+    if (getAlliance().get()==Alliance.Blue){
+        if (x1 < 3.6){
+            isInAlliZone = true;
+        }
+        else{
+            isInAlliZone = false;
+        }
+            
+    } 
+    else if (getAlliance().get()==Alliance.Red){
+        if (x1 > 12.9){
+            isInAlliZone = true;
+        }
+        else{
+            isInAlliZone = false;
+        }
+            
+    } 
+    
+    return isInAlliZone;
+
+  }
+
   public void setposefromlimelight(){
     this.resetPose(LimelightHelpers.getBotPose2d_wpiBlue("limelight-rr"));
   }
   public void setposefromlimelightFront(){
     if (LimelightHelpers.getTV("limelight-front")){
     this.resetPose(LimelightHelpers.getBotPose2d_wpiBlue("limelight-front"));
-    }
-  }
-  public boolean isInAlliZone() {
-    double x1 = this.getState().Pose.getX();
-
-     if (getAlliance () .get()==Alliance.Red){
-        if (x1 > 12.9){
-            return true;
-        }else{
-            return false;
-        }
-    }else{ //blue alliance
-        if (x1 < 3.6){
-                return true;
-            }else{
-                return false;
-            }
     }
   }
 }

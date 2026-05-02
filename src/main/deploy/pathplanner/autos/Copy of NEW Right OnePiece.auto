@@ -11,7 +11,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "New Path"
+                  "pathName": "start to neutral zone"
                 }
               },
               {
@@ -30,15 +30,40 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "SetPose"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "neutral zone to launch"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "LauncherMid"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "-CenterDrive"
+                }
+              }
+            ]
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "LauncherMid"
+            "name": "SetPose"
           }
         },
         {
@@ -111,6 +136,12 @@
                 "type": "named",
                 "data": {
                   "name": "ShortIntake"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoLauncher"
                 }
               }
             ]

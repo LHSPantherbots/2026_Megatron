@@ -11,9 +11,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "Agitate"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "LauncherMid"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Agitate2"
+                }
+              }
+            ]
           }
         },
         {

@@ -96,6 +96,12 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
+      "name": "AutoLauncher",
+      "waypointRelativePos": 1.4488330341113111,
+      "endWaypointRelativePos": 3.0,
+      "command": null
+    },
+    {
       "name": "CenterDrive",
       "waypointRelativePos": 2.575682382133995,
       "endWaypointRelativePos": 2.8794044665012306,

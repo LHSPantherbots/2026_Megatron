@@ -64,12 +64,12 @@
     },
     {
       "anchor": {
-        "x": 2.5500111111111106,
-        "y": 2.553844444444444
+        "x": 2.1889772727272727,
+        "y": 2.478670454545455
       },
       "prevControl": {
-        "x": 3.0211262186240586,
-        "y": 2.8111955578078383
+        "x": 2.6600923802402208,
+        "y": 2.7360215679088493
       },
       "nextControl": null,
       "isLocked": false,
@@ -137,6 +137,12 @@
   "pointTowardsZones": [],
   "eventMarkers": [
     {
+      "name": "LauncherMid",
+      "waypointRelativePos": 2.1400359066427272,
+      "endWaypointRelativePos": 4.0,
+      "command": null
+    },
+    {
       "name": "-CenterDrive",
       "waypointRelativePos": 3.092803970223322,
       "endWaypointRelativePos": 3.307196029776669,
@@ -153,7 +159,7 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 44.11859600341787
+    "rotation": 39.98688624496413
   },
   "reversed": false,
   "folder": null,
