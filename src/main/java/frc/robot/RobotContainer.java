@@ -7,6 +7,7 @@ package frc.robot;
 import static edu.wpi.first.units.Units.*;
 
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
+import com.fasterxml.jackson.databind.util.Named;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 
 import com.pathplanner.lib.auto.AutoBuilder;
@@ -108,7 +109,9 @@ public class RobotContainer {
         NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
         NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(3));
         NamedCommands.registerCommand("-CenterDrive",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive ).withTimeout(3));
-        NamedCommands.registerCommand("RunLauncherMidSimple",  new RunLauncherCmd(launcher, leds, true).withTimeout(5.0));;
+        NamedCommands.registerCommand("RunLauncherMidSimple",  new RunLauncherCmd(launcher, leds, true).withTimeout(5.0));
+        NamedCommands.registerCommand("LedPanther", new RunCommand(()->leds.pantherStreak(), leds));
+        NamedCommands.registerCommand("LedRainbow", new RunCommand(()->leds.rainbow(), leds));
 
 
 
