@@ -8,6 +8,8 @@ import static edu.wpi.first.units.Units.MetersPerSecond;
 import static edu.wpi.first.units.Units.RadiansPerSecond;
 import static edu.wpi.first.units.Units.RotationsPerSecond;
 
+import java.util.jar.Attributes.Name;
+
 import com.ctre.phoenix6.swerve.SwerveModule.DriveRequestType;
 import com.ctre.phoenix6.swerve.SwerveRequest;
 import com.pathplanner.lib.auto.AutoBuilder;
@@ -28,6 +30,7 @@ import frc.robot.commands.AgitateHopper;
 import frc.robot.commands.AutoAgitateHopper;
 import frc.robot.commands.ClimbDown;
 import frc.robot.commands.ClimbUp;
+import frc.robot.commands.IntakeCmd;
 import frc.robot.commands.IntakeDownCmd;
 import frc.robot.commands.IntakeUpCmd;
 import frc.robot.commands.LauncherHoodAuto;
@@ -103,17 +106,31 @@ public class RobotContainer {
         NamedCommands.registerCommand("LauncherLong", new LauncherLongCmd(launcher, hood,leds, true));
         NamedCommands.registerCommand("Agitate", new AutoAgitateHopper(intakeRoller, intakePivot, hopper, feeder, drivetrain).withTimeout(3.3));
         NamedCommands.registerCommand("Agitate2", new AgitateHopper(intakeRoller, intakePivot, hopper, feeder).withTimeout(3.3));
-        NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true));
+        NamedCommands.registerCommand("StopLauncher", new LauncherStopCmd(launcher, hood, leds, true).withTimeout(0.01)
+                            .finallyDo(() -> System.out.println(">>> Stop Launcher Command ENDED")));
+
         NamedCommands.registerCommand("AutoAimDive", drivetrain.applyRequest(() ->robotDrive.withVelocityX(-m_driverController.getLeftY() * MaxSpeed * .25) .withVelocityY(-m_driverController.getLeftX() * MaxSpeed * .25) .withTargetDirection(new Rotation2d(drivetrain.getLengthAndAngleFromHub()[1]))).withTimeout(.8));
-        NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(8));
+        NamedCommands.registerCommand("AutoLauncher", new LauncherHoodAutoPersist(launcher, hood, drivetrain).withTimeout(4.0));
         NamedCommands.registerCommand("SetPose", new SetPoseBestLimelightCMD(drivetrain));
         //NamedCommands.registerCommand("SetPose", new InstantCommand(()-> drivetrain.setposefromlimelightFront(),drivetrain));
         NamedCommands.registerCommand("ShortIntake",  new RunCommand(() -> intakeRoller.intake(), intakeRoller).withTimeout(2));
         NamedCommands.registerCommand("CenterDrive",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive ).withTimeout(2));
         NamedCommands.registerCommand("-CenterDrive",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive ).withTimeout(2));
+         NamedCommands.registerCommand("CenterDriveNow",  new RunCommand(()->centerDrive.manualDrive(.8), centerDrive )
+                            .beforeStarting(() -> System.out.println(">>> Center Drive STARTED"))
+                            .finallyDo(() -> System.out.println("<<< Center Drive ENDED")));
+        NamedCommands.registerCommand("-CenterDriveNow",  new RunCommand(()->centerDrive.manualDrive(-.8), centerDrive )
+                            .beforeStarting(() -> System.out.println(">>> Negative Center Drive STARTED"))
+                            .finallyDo(() -> System.out.println("<<< Negative Center Drive ENDED")));
+        NamedCommands.registerCommand("SpoolLauncher",  new LauncherMidCmd(launcher, hood, leds, true)
+                            .beforeStarting(() -> System.out.println(">>> Spool Launcher STARTED"))
+                            .finallyDo(() -> System.out.println("<<< Spool Launcher ENDED")));
+
         NamedCommands.registerCommand("RunLauncherMidSimple",  new RunLauncherCmd(launcher, leds, true).withTimeout(5.0));;
         NamedCommands.registerCommand("ClimbuP", new ClimbUp(climb).withTimeout(1.9));
         NamedCommands.registerCommand("ClimbDown", new ClimbDown(climb).withTimeout(1.5));
+        //NamedCommands.registerCommand("IntakeNow", new RunCommand(()->intakeRoller.intake(),intakeRoller));
+        NamedCommands.registerCommand("IntakeNow", new IntakeCmd(intakeRoller));
 
 
 
