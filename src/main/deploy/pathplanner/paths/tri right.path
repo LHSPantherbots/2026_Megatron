@@ -1,0 +1,112 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 2.7546444444444442,
+        "y": 2.4076777777777774
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.907205488909638,
+        "y": 2.6003788728363344
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 5.882611111111112,
+        "y": 2.748733333333332
+      },
+      "prevControl": {
+        "x": 5.367340168389402,
+        "y": 2.18294686655668
+      },
+      "nextControl": {
+        "x": 6.252189864451416,
+        "y": 3.15454441195467
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 5.882611111111112,
+        "y": 4.103211111111111
+      },
+      "prevControl": {
+        "x": 5.835529284796982,
+        "y": 3.833083101520021
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.45311203319502186,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.26799007444168965,
+      "maxWaypointRelativePos": 0.7245657568238156,
+      "constraints": {
+        "maxVelocity": 1.9,
+        "maxAcceleration": 1.9,
+        "maxAngularVelocity": 360.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "CenterDrive",
+      "waypointRelativePos": 0.33548387096774146,
+      "endWaypointRelativePos": 0.8238213399503722,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "CenterDriveNow"
+        }
+      }
+    },
+    {
+      "name": "Intake",
+      "waypointRelativePos": 0.764267990074437,
+      "endWaypointRelativePos": 2.0,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "IntakeNow"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 4.0,
+    "maxAcceleration": 4.0,
+    "maxAngularVelocity": 360.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 90.81845546168861
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 37.64762064010774
+  },
+  "useDefaultConstraints": true
+}

@@ -24,9 +24,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "SetPose"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "SetPose"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              }
+            ]
           }
         },
         {
@@ -42,12 +55,6 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "AutoAimDive"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
                   "name": "Agitate"
                 }
               }
@@ -55,9 +62,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "StopLauncher"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "StopLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
+              }
+            ]
           }
         },
         {
@@ -67,9 +87,22 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "SetPose"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "SetPose"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "AutoAimDive"
+                }
+              }
+            ]
           }
         },
         {
@@ -85,12 +118,6 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "AutoAimDive"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
                   "name": "Agitate"
                 }
               }
@@ -98,15 +125,34 @@
           }
         },
         {
-          "type": "named",
+          "type": "parallel",
           "data": {
-            "name": "StopLauncher"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "StopLauncher"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeDownCmd"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "tri right"
           }
         }
       ]
     }
   },
   "resetOdom": true,
-  "folder": null,
+  "folder": "TRI",
   "choreoAuto": false
 }
